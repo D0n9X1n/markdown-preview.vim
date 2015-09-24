@@ -14,6 +14,7 @@ import webbrowser
 import shutil
 
 content = "<html>\n"
+content += '<meta charset="UTF-8" />'
 content += '<link crossorigin="anonymous" href="markdown.css" media="all" rel="stylesheet"/>'
 for line in vim.current.buffer:
     content += mistune.markdown(line)
