@@ -14,6 +14,7 @@ This is a vim markdown preview plugin.
 5. or use `:MarkdownPreview` to preview your markdown docs
 
 **Bundle or Vundle**
+
 1. add `Bundle 'MikeCoder/markdown-preview.vim'` to your bundle file like vimrc or vimrc.bundle
 2. and exec `BundleInstall` to install the plugin
 
