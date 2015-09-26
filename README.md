@@ -1,4 +1,4 @@
-#VIM Markdown Preview
+VIM Markdown Preview
 ---
 
 This is a vim markdown preview plugin.
