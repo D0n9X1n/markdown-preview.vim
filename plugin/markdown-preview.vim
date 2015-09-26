@@ -16,8 +16,10 @@ import shutil
 content = "<html>\n"
 content += '<meta charset="UTF-8" />'
 content += '<link crossorigin="anonymous" href="markdown.css" media="all" rel="stylesheet"/>'
+buff = ''
 for line in vim.current.buffer:
-    content += mistune.markdown(line)
+    buff += line + '\n'
+content += mistune.markdown(buff)
 content += "</html>"
 
 file = open('/tmp/tmp.html', 'w')
