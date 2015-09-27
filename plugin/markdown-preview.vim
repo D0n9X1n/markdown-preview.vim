@@ -3,15 +3,31 @@ if !has('python')
     finish
 endif
 
-function! MarkdownPreview()
+let s:SourcedFile=expand("<sfile>")
 
+function! MarkdownPreview(args1)
 " We start the python code like the next line.
+
 python << EOF
 # the vim module contains everything we need to interface with vim from python.
 import vim
 import mistune
 import webbrowser
-import shutil
+import shutil, os, platform
+
+cssName = vim.eval("a:args1")
+
+if vim.eval("exists('g:MarkDownCssDir')") == '1':
+    cssDir = vim.eval('g:MarkDownCssDir')
+else:
+    if platform.system() == 'Windows':
+        cssDir = os.path.join(vim.eval('$HOME'), 'vimfiles', 'MarkDownCSS')
+    elif vim.eval("has('nvim')") == '1':
+        cssDir = os.path.join(vim.eval('$HOME'),'.nvim', 'MarkDownCSS')
+    else:
+        cssDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownCSS')
+
+print os.path.join(cssDir, cssName)
 
 content = "<html>\n"
 content += '<meta charset="UTF-8" />'
@@ -38,6 +54,8 @@ EOF
 " Here the python code is closed. We can continue writing VimL or python again.
 endfunction
 
-command! -nargs=0 MarkdownPreview call MarkdownPreview()
+command! -nargs=1 MarkdownPreview :call MarkdownPreview(<f-args>)
 
-map <leader>m :MarkdownPreview<CR>
+map <leader>m :MarkdownPreview default<CR>
+
+
