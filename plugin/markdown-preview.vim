@@ -6,10 +6,7 @@ endif
 let s:SourcedFile=expand("<sfile>")
 
 function! MarkdownPreview(args1)
-" We start the python code like the next line.
-
 python << EOF
-# the vim module contains everything we need to interface with vim from python.
 import vim
 import mistune
 import webbrowser
@@ -48,25 +45,28 @@ file.close()
 
 url = 'file:///'+currentpath+'tmp.html'
 webbrowser.open(url)
-
 EOF
 endfunction
 
 function! ClearAll()
 python << EOF
-import os
-
+import vim
+import shutil, os, platform
+currentpath = vim.eval('s:SourcedFile')
+print currentpath
 os.remove(currentpath+'tmp.html')
 os.remove(currentpath+'markdown.css')
 EOF
 endfunction
 
 function! Preview()
-    MarkdownPreview default
-    ClearAll
+MarkdownPreview default
+!read ENTER
+ClearAll
 endfunction
 
 command! -nargs=1 MarkdownPreview :call MarkdownPreview(<f-args>)
+command! -nargs=0 ClearAll :call ClearAll()
 command! -nargs=0 Preview :call Preview()
 
 map <leader>m :Preview<CR>
