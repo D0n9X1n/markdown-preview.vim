@@ -11,8 +11,10 @@ import vim
 import mistune
 import webbrowser
 import shutil, os, platform
+import commands
 
 cssName = vim.eval("a:args1")
+currentpath = commands.getstatusoutput("pwd")[1]
 
 if vim.eval("exists('g:MarkDownCssDir')") == '1':
     cssDir = vim.eval('g:MarkDownCssDir')
@@ -33,7 +35,7 @@ for line in vim.current.buffer:
 content += mistune.markdown(buff)
 content += "</html>"
 
-currentpath = vim.eval('s:SourcedFile')
+print currentpath
 file = open(currentpath+'tmp.html', 'w')
 file.write(content)
 file.close()
@@ -52,10 +54,11 @@ function! ClearAll()
 python << EOF
 import vim
 import shutil, os, platform
-currentpath = vim.eval('s:SourcedFile')
-print currentpath
+
+currentpath = commands.getstatusoutput("pwd")[1]
 os.remove(currentpath+'tmp.html')
 os.remove(currentpath+'markdown.css')
+
 EOF
 endfunction
 
