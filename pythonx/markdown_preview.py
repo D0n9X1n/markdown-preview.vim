@@ -22,8 +22,10 @@ def markdownPreview():
             cssDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownCSS')
 
     content = "<html>\n"
-    content += '<meta charset="UTF-8" />'
-    content += '<link href="' + cssDir + '/' + cssName + '.css" media="all" rel="stylesheet"/>'
+    content += '<meta charset="UTF-8" />\n'
+    content += '<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">\n'
+    content += '<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>\n'
+    content += '<link href="' + cssDir + '/' + cssName + '.css" media="all" rel="stylesheet"/>\n'
     buff = ''
     for line in vim.current.buffer:
         buff += line + '\n'
