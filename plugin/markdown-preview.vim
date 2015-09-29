@@ -12,10 +12,6 @@ exec g:_uspy "while not os.path.exists(os.path.join(sourced_file, 'pythonx')):
 exec g:_uspy "module_path = os.path.join(sourced_file, 'pythonx')"
 exec g:_uspy "sys.path.append(module_path)"
 
-if empty(glob('~/.vim/MarkDownCSS/default.css'))
-    call MarkdownPreviewInit()
-endif
-
 function! MarkdownPreviewInit()
 python << EOF
 import markdown_init
@@ -23,6 +19,9 @@ markdown_init.init()
 EOF
 endfunction
 
+if empty(glob('~/.vim/MarkDownCSS/default.css'))
+    call MarkdownPreviewInit()
+endif
 
 function! MarkdownPreview(args1)
 python << EOF
@@ -33,22 +32,18 @@ endfunction
 
 function! ClearAll()
 python << EOF
-import shutil, os, platformm, commands
+import os, commands
 currentpath = commands.getstatusoutput("pwd")[1]
 os.remove(os.path.join(currentpath, 'tmp.html'))
 EOF
 endfunction
 
-function! Preview()
-MarkdownPreview default.css
+function! Preview(args1)
+call MarkdownPreview(a:args1)
 !read ENTER
 call ClearAll()
 endfunction
 
-command! -nargs=1 MarkdownPreview :call MarkdownPreview(<f-args>)
-command! -nargs=0 Preview :call Preview()
+command! -nargs=1 MarkdownPreview :call Preview(<f-args>)
 
-map <leader>m :Preview<CR>
-
-
-
+map <leader>m :MarkdownPreview default<CR>

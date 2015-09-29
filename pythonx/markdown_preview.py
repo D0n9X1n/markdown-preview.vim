@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 import vim
-import mistune
+import markdown_parser
 import webbrowser
 import os, platform
 import commands
@@ -27,7 +27,7 @@ def markdownPreview():
     buff = ''
     for line in vim.current.buffer:
         buff += line + '\n'
-    content += mistune.markdown(buff)
+    content += markdown_parser.markdown(buff)
     content += "</html>"
 
     print currentpath

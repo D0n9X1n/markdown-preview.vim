@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pip install mistune
+echo "LET's ROCK AND ROLL"
