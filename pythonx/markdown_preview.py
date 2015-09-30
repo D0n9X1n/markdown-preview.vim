@@ -23,14 +23,18 @@ def markdownPreview():
 
     content = "<html>\n"
     content += '<meta charset="UTF-8" />\n'
-    content += '<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">\n'
-    content += '<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>\n'
+    content += '<head>'
+    content += '<link rel="stylesheet" href="' + cssDir + '/code-styles/default.min.css">\n'
     content += '<link href="' + cssDir + '/' + cssName + '.css" media="all" rel="stylesheet"/>\n'
+    content += '<script src="' + cssDir + '/js/highlight.min.js"></script>\n'
+    content += '<script src="' + cssDir + '/js/highlight.pack.js"></script>\n'
+    content += '<script>hljs.initHighlightingOnLoad();</script>\n'
+    content += '</head>\n<body>'
     buff = ''
     for line in vim.current.buffer:
         buff += line + '\n'
     content += markdown_parser.markdown(buff)
-    content += "</html>"
+    content += "</body></html>"
 
     print currentpath
     file = open(os.path.join(currentpath, 'tmp.html'), 'w')

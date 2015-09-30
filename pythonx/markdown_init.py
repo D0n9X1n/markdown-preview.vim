@@ -29,3 +29,4 @@ def init():
         file = open(os.path.join(cssDir, 'GitHub.css'), 'w+')
         file.write(cssFile)
         file.close()
+
