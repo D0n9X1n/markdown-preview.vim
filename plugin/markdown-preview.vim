@@ -3,6 +3,16 @@ if !has('python')
     finish
 endif
 
+" the target resource files folder
+if !exists('g:MarkDownResDir')
+    let g:MarkDownCSSDir='~/.vim/MarkDownRes'
+endif
+
+" the source resource files folder
+if !exists('g:SourceMarkDownResDir')
+    let g:SourceMarkDownCssDir='~/.vim/bundle/markdown-preview.vim/resources'
+endif
+
 " Expand our path
 let s:SourcedFile=expand("<sfile>")
 exec g:_uspy "import vim, os, sys"
