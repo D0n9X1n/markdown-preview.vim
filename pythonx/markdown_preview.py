@@ -11,15 +11,15 @@ def markdownPreview():
     cssName = vim.eval("a:args1")
     currentpath = commands.getstatusoutput("pwd")[1]
 
-    if vim.eval("exists('g:MarkDownCssDir')") == '1':
-        cssDir = vim.eval('g:MarkDownCssDir')
+    if vim.eval("exists('g:MarkDownResDir')") == '1':
+        cssDir = vim.eval('g:MarkDownResDir')
     else:
         if platform.system() == 'Windows':
-            cssDir = os.path.join(vim.eval('$HOME'), 'vimfiles', 'MarkDownCSS')
+            cssDir = os.path.join(vim.eval('$HOME'), 'vimfiles', 'MarkDownRes')
         elif vim.eval("has('nvim')") == '1':
-            cssDir = os.path.join(vim.eval('$HOME'),'.nvim', 'MarkDownCSS')
+            cssDir = os.path.join(vim.eval('$HOME'),'.nvim', 'MarkDownRes')
         else:
-            cssDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownCSS')
+            cssDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
 
     content = "<html>\n"
     content += '<meta charset="UTF-8" />\n'
