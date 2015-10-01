@@ -7,11 +7,11 @@ def init():
         DisResDir = vim.eval('g:MarkDownResDir')
     else:
         if platform.system() == 'Windows':
-            DisResDir = os.path.join(vim.eval('$HOME'), 'vimfiles', 'MarkDownCSS')
+            DisResDir = os.path.join(vim.eval('$HOME'), 'vimfiles', 'MarkDownRes')
         elif vim.eval("has('nvim')") == '1':
-            DisResDir = os.path.join(vim.eval('$HOME'),'.nvim', 'MarkDownCSS')
+            DisResDir = os.path.join(vim.eval('$HOME'),'.nvim', 'MarkDownRes')
         else:
-            DisResDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownCSS')
+            DisResDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
 
     if vim.eval("exists('g:SourceMarkDownResDir')") == '1':
         SourceResDir = vim.eval('g:SourceMarkDownResDir')
