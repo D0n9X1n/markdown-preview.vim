@@ -56,4 +56,4 @@ endfunction
 
 command! -nargs=1 MarkdownPreview :call Preview(<f-args>)
 
-map <leader>m :MarkdownPreview default<CR>
+map <leader>m :MarkdownPreview GitHub<CR>
