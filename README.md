@@ -39,6 +39,8 @@ see [@LECENSE](https://githu.com/MikeCoder/markdown-preview.vim/blob/master/LECE
 ####TODO
 see [@TODO.md](https://github.com/MikeCoder/markdown-preview.vim/blob/master/TODO.md)
 
+### *中文文档版本*:[http://mikecoder.net/](http://mikecoder.net/?post=131)
+
 ####EXAMPLE
 
 ![Test Image](./images/image-test.png)
