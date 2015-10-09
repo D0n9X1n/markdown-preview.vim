@@ -6,6 +6,7 @@
 3. **√** ~~add code highlight~~
 4. **√** ~~add normal install method test~~
 5. code sytle custom support
+6. add config introduction
 
 
 ###BUGS
