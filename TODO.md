@@ -11,4 +11,4 @@
 
 ###BUGS
 1. **√** ~~fix the image url bug~~
-2. if use gvim open a file instead of a folder and preview, the preview is wrong
+2. **√** ~~if use gvim open a file instead of a folder and preview, the preview is wrong~~
