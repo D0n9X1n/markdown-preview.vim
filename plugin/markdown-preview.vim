@@ -13,14 +13,21 @@ if !exists('g:SourceMarkDownResDir')
     let g:SourceMarkDownCssDir='~/.vim/bundle/markdown-preview.vim/resources'
 endif
 
+function! MarkdownPath()
+python << EOF
+import vim, os, sys
+sourced_file = vim.eval('s:SourcedFile')
+while not os.path.exists(os.path.join(sourced_file, 'pythonx')):
+    sourced_file = os.path.dirname(sourced_file)
+module_path = os.path.join(sourced_file, 'pythonx')
+sys.path.append(module_path)
+EOF
+endfunction
+
 " Expand our path
 let s:SourcedFile=expand("<sfile>")
-exec g:_uspy "import vim, os, sys"
-exec g:_uspy "sourced_file = vim.eval('s:SourcedFile')"
-exec g:_uspy "while not os.path.exists(os.path.join(sourced_file, 'pythonx')):
-   \ sourced_file = os.path.dirname(sourced_file)"
-exec g:_uspy "module_path = os.path.join(sourced_file, 'pythonx')"
-exec g:_uspy "sys.path.append(module_path)"
+call MarkdownPath()
+
 
 function! MarkdownPreviewInit()
 python << EOF
