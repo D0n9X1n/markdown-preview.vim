@@ -5,6 +5,13 @@ VIM Markdown Preview
 
 Yet another vim markdown preview plugin.
 
+####Why you need this
+1. It's easy to install with vundle or bundle
+2. No complex config steps
+3. **Code Hightlight**
+4. Easy to custom your own css style
+5. *TODO:* Code custom style hightlight
+
 ####Installing
 
 **Recommand Bundle or Vundle**
@@ -16,7 +23,7 @@ Yet another vim markdown preview plugin.
 4. then use **PluginInstall** to install the plugin
 
 
-##### Recommand:k-vim
+##### Recommand:[k-vim](https://github.com/wklken/k-vim)
 1. add **Bundle 'MikeCoder/markdown-preview.vim'** to your **vimrc.bundle** file
 2. and exec **BundleInstall** to install the plugin
 
@@ -27,7 +34,7 @@ Yet another vim markdown preview plugin.
 3. use **git clone https://github.com/MikeCoder/markdown-preview.vim.git .**
 4. use **mv markdown-preview.vim/* . && rm -rf markdown-preview.vim**
 5. use **cp resources MarkDownRes** to copy the resources
-6. then you can open your vim and type **MarkdownPreview Github** to check whether it is ok
+6. then you can open your vim and type **:MarkdownPreview Github** to check whether it is ok
 
 ####Usage
 
@@ -44,7 +51,7 @@ this theme is in the css folder, if you want to change it to your favorite theme
 
 - go into your .vim folder
 - find **MarkDownRes** folder and you will find default.css and GitHub.css here
-- add your custom css file here, such as **exmaple.css**
+- add your custom css file here, such as **example.css**
 - use vim open your markdown doc and **:MarkdownPreview example**
 - and you will see your doc preview in your browser with example.css
 
