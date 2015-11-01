@@ -40,10 +40,17 @@ if empty(glob('~/.vim/MarkDownCSS/default.css'))
     call MarkdownPreviewInit()
 endif
 
+function! MarkdownPreview(args1, args2)
+python << EOF
+import markdown_preview
+markdown_preview.markdownPreviewWithCustomCodeStyle()
+EOF
+endfunction
+
 function! MarkdownPreview(args1)
 python << EOF
 import markdown_preview
-markdown_preview.markdownPreview()
+markdown_preview.markdownPreviewWithDefaultCodeStyle()
 EOF
 endfunction
 
