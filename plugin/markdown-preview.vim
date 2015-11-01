@@ -62,19 +62,20 @@ os.remove(os.path.join(currentpath, 'tmp.html'))
 EOF
 endfunction
 
-function! MarkdownPreviewWithDefaultCodeStyle(args1)
+function! PreviewWithDefaultCodeStyle(args1)
     call MarkdownPreviewWithDefaultCodeStyle(a:args1)
     !read ENTER
     call ClearAll()
 endfunction
 
-function! MarkdownPreviewWithCustomCodeStyle(args1, args2)
-    call markdownPreviewWithCustomCodeStyle(args1, args2)
+function! PreviewWithCustomCodeStyle(args1, args2)
+    call MarkdownPreviewWithCustomCodeStyle(a:args1, a:args2)
     !read ENTER
     call ClearAll()
 endfunction
 
-command! -nargs=1 MarkdownPreviewWithDefaultCodeStyle: call MarkdownPreviewWithDefaultCodeStyle(<f-args>)
-command! -nargs=1 MarkdownPreviewWithCustomCodeStyle:  call MarkdownPreviewWithCustomCodeStyle(<f-args>)
+if !exists(':MarkdownPreviewWithDefaultCodeStyle')
+    command -nargs=1 MarkdownPreviewWithDefaultCodeStyle:call PreviewWithDefaultCodeStyle(<f-args>)
+endif
 
 map <leader>m :MarkdownPreviewWithDefaultCodeStyle GitHub<CR>
