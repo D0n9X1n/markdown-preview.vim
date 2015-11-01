@@ -75,6 +75,6 @@ function! MarkdownPreviewWithCustomCodeStyle(args1, args2)
 endfunction
 
 command! -nargs=1 MarkdownPreviewWithDefaultCodeStyle: call MarkdownPreviewWithDefaultCodeStyle(<f-args>)
-command! -nargs=2 MarkdownPreviewWithCustomCodeStyle:  call MarkdownPreviewWithCustomCodeStyle(<f-args>)
+command! -nargs=1 MarkdownPreviewWithCustomCodeStyle:  call MarkdownPreviewWithCustomCodeStyle(<f-args>)
 
 map <leader>m :MarkdownPreviewWithDefaultCodeStyle GitHub<CR>
