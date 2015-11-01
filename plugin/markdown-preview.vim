@@ -74,12 +74,12 @@ function! PreviewWithCustomCodeStyle(...)
     call ClearAll()
 endfunction
 
-if !exists(':MarkdownPreviewWithDefaultCodeStyle')
+if !exists(':MarkdownPreview')
     command -nargs=1 MarkdownPreview :call PreviewWithDefaultCodeStyle(<f-args>)
 endif
 
 if !exists(':MarkdownPreviewWithCustomCodeStyle')
-    command -nargs=1 MarkdownPreviewWithCustomCodeStyleCodeStyle :call PreviewWithCustomCodeStyle(<f-args>)
+    command -nargs=* MarkdownPreviewWithCustomCodeStyleCodeStyle :call PreviewWithCustomCodeStyle(<f-args>)
 endif
 
 map <leader>m :MarkdownPreview GitHub<CR>
