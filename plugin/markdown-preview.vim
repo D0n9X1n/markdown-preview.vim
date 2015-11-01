@@ -75,7 +75,11 @@ function! PreviewWithCustomCodeStyle(args1, args2)
 endfunction
 
 if !exists(':MarkdownPreviewWithDefaultCodeStyle')
-    command -nargs=1 MarkdownPreviewWithDefaultCodeStyle:call PreviewWithDefaultCodeStyle(<f-args>)
+    command -nargs=1 MarkdownPreview :call PreviewWithDefaultCodeStyle(<f-args>)
 endif
 
-map <leader>m :MarkdownPreviewWithDefaultCodeStyle GitHub<CR>
+if !exists(':MarkdownPreviewWithCustomCodeStyle')
+    command -nargs=1 MarkdownPreviewWithCustomCodeStyleCodeStyle :call PreviewWithCustomCodeStyle(<f-args>)
+endif
+
+map <leader>m :MarkdownPreview GitHub<CR>
