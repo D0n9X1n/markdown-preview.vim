@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 import os, vim, platform, commands, shutil, sys
+import markdown_version
 
 def init():
     if vim.eval("exists('g:MarkDownResDir')") == '1':
@@ -23,7 +24,7 @@ def init():
         else:
             SourceResDir = os.path.join(vim.eval('$HOME'), '.vim', 'bundle/markdown-preview.vim/resources')
 
-    if not os.path.isdir(DisResDir):
+    if not os.path.isdir(DisResDir) or os.path.isfile(os.path.join(DisResDir, markdown_version.__PLUGIN_VERSION__)):
         if platform.system() == 'Windows':
             # not test on windows
             print commands.getoutput('xcopy /E ' + SourceResDir + ' ' + DisResDir)
