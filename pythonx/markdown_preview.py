@@ -24,7 +24,7 @@ def markdownPreview():
     content = "<html>\n"
     content += '<meta charset="UTF-8" />\n'
     content += '<head>'
-    content += '<link rel="stylesheet" href="' + cssDir + '/code-styles/default.min.css">\n'
+    content += '<link rel="stylesheet" href="' + cssDir + '/code-styles/default.css">\n'
     content += '<link href="' + cssDir + '/' + cssName + '.css" media="all" rel="stylesheet"/>\n'
     content += '<script src="' + cssDir + '/js/highlight.min.js"></script>\n'
     content += '<script src="' + cssDir + '/js/highlight.pack.js"></script>\n'
