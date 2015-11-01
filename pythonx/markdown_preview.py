@@ -7,7 +7,7 @@ import webbrowser
 import os, platform
 import commands
 
-def markdownPreview():
+def markdownPreviewWithDefaultCodeStyle():
     cssName = vim.eval("a:args1")
     currentpath = commands.getstatusoutput("pwd")[1]
 
