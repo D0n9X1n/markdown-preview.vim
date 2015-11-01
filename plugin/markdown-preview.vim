@@ -68,8 +68,8 @@ function! PreviewWithDefaultCodeStyle(args1)
     call ClearAll()
 endfunction
 
-function! PreviewWithCustomCodeStyle(args1, args2)
-    call MarkdownPreviewWithCustomCodeStyle(a:args1, a:args2)
+function! PreviewWithCustomCodeStyle(...)
+    call MarkdownPreviewWithCustomCodeStyle(a:0, a:1)
     !read ENTER
     call ClearAll()
 endfunction
