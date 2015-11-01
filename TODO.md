@@ -5,8 +5,9 @@
 2. **√** ~~remove pip support~~
 3. **√** ~~add code highlight~~
 4. **√** ~~add normal install method test~~
-5. code sytle custom support
-6. add config introduction
+5. **√** ~~code sytle custom support~~
+6. add code custom document
+7. add config introduction
 
 
 ###BUGS

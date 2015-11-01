@@ -4,7 +4,6 @@ import os, vim, platform, commands, shutil, sys
 import markdown_version
 
 def init():
-    print 'init'
     if vim.eval("exists('g:MarkDownResDir')") == '1':
         DisResDir = vim.eval('g:MarkDownResDir')
     else:
