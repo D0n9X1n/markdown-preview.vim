@@ -15,3 +15,5 @@
 2. **√** ~~if use gvim open a file instead of a folder and preview, the preview is wrong~~
 3. **√** ~~if vim version is 7.3 or not enable python, it will cause bugs like:~~
     > ![bug](./images/bug-1.jpg)
+
+4. new bug, when edit in different folder the image is empty
