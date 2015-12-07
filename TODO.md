@@ -8,6 +8,8 @@
 5. **√** ~~code sytle custom support~~
 6. **√** ~~add code custom document~~
 7. add config introduction
+8. when add a new line, the brower dose not go to the bottom
+    + use config to control the move
 
 
 ###BUGS
