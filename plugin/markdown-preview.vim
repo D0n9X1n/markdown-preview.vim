@@ -1,3 +1,9 @@
+""""""""""""""""""""""""""""""""""""""""""""
+let VERSION = '2.0.0'
+let AUTHOR  = 'Mike Tang'
+let EMAIL   = 'mikecoder.cn@gmail.com'
+""""""""""""""""""""""""""""""""""""""""""""
+
 if !has('python')
     echo 'Error: Required vim compile with +python'
     finish
@@ -36,9 +42,23 @@ markdown_init.init()
 EOF
 endfunction
 
-if empty(glob('~/.vim/MarkDownCSS/default.css'))
+if empty(glob('~/.vim/MarkDownCSS/'.$VERSION))
     call MarkdownPreviewInit()
 endif
+
+function! LiveMarkdownPreviewStart()
+python << EOF
+import markdown_preview
+markdown_preview.liveMarkdownPreviewStart()
+EOF
+endfunction
+
+function! LiveMarkdownPreviewEnd()
+python << EOF
+import markdown_preview
+markdown_preview.liveMarkdownPreviewEnd()
+EOF
+endfunction
 
 function! MarkdownPreviewWithCustomCodeStyle(args1, args2)
 python << EOF
@@ -80,6 +100,14 @@ endif
 
 if !exists(':MarkdownPreviewWithCustomCodeStyle')
     command -nargs=* MarkdownPreviewWithCustomCodeStyleCodeStyle call PreviewWithCustomCodeStyle(<f-args>)
+endif
+
+if !exists(':LiveMarkdownPreviewStart')
+    command -nargs=0 LiveMarkdownPreviewStart call LiveMarkdownPreviewStart()
+endif
+
+if !exists(':LiveMarkdownPreviewEnd')
+    command -nargs=0 LiveMarkdownPreviewEnd call LiveMarkdownPreviewEnd()
 endif
 
 map <leader>m :MarkdownPreview GitHub<CR>
