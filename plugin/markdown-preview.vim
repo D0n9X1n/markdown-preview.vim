@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""
-let VERSION = '2.0.0'
+let VERSION = '1.1.0'
 let AUTHOR  = 'Mike Tang'
 let EMAIL   = 'mikecoder.cn@gmail.com'
 """"""""""""""""""""""""""""""""""""""""""""
