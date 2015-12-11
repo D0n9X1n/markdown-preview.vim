@@ -2,57 +2,53 @@
 import socket
 import signal
 import errno
+import markdown_parser
+import markdown_preview
+import threading
+import markdown_lib
+import sys
 
-def HttpResponse(header,whtml):
-    context = 'hello world'
-    response = "%s %d\n\n%s\n\n" % (header,len(context),context)
-    return response
+class Server(threading.Thread):
 
-def sigIntHander(signo,frame):
-    print 'get signo# ',signo
-    global runflag
-    runflag = False
-    global lisfd
-    lisfd.shutdown(socket.SHUT_RD)
+    def Response(self, header, content):
+        response = "%s %d\r\n\r\n%s\r\n\r\n" % (header, sys.maxint, content)
+        return response
 
-strHost = "localhost"
-HOST = strHost #socket.inet_pton(socket.AF_INET,strHost)
-PORT = 20014
+    def sigIntHander(self, signo, frame):
+        self.isRun
+        self.isRun = False
+        self.lisfd.shutdown(socket.SHUT_RD)
 
-httpheader = '''''\
-HTTP/1.1 200 OK
-Context-Type: text/html
-Server: Python-slp version 1.0
-Context-Length: '''
+    def __init__(self, port):
+        self.PORT = port
+        self.HOST = "localhost"
+        threading.Thread.__init__(self)
+        self.lisfd = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+        self.lisfd.bind((self.HOST, self.PORT))
+        self.lisfd.listen(2)
+        signal.signal(signal.SIGINT, self.sigIntHander)
 
-lisfd = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-lisfd.bind((HOST, PORT))
-lisfd.listen(2)
+    def run(self):
+        self.startServer()
 
-signal.signal(signal.SIGINT,sigIntHander)
+    def startServer(self):
+        header = "HTTP/1.1 200 OK\r\nContext-Type: text/html\r\nAccess-Control-Allow-Origin: *\r\nServer: Python-slp version 1.0\r\nContext-Length: "
+        self.isRun = True
+        while self.isRun:
+            try:
+                confd,addr = self.lisfd.accept()
+            except socket.error as e:
+                continue
 
-runflag = True
-while runflag:
-    try:
-        confd,addr = lisfd.accept()
-    except socket.error as e:
-        if e.errno == errno.EINTR:
-            print 'get a except EINTR'
-        else:
-            raise
-        continue
+            if self.isRun == False:
+                break;
 
-    if runflag == False:
-        break;
+            content = markdown_preview.getBuff()
+            markdown_lib._print(content)
+            confd.send(self.Response(header, content))
+            confd.close()
 
-    print "connect by ",addr
-    data = confd.recv(1024)
-    if not data:
-        break
-    print data
-    confd.send(HttpResponse(httpheader, 'index.html'))
-    confd.close()
-else:
-    print 'runflag#', runflag
-
-print 'Done'
+    def endServer(self):
+        self.isRun = False
+        self.lisfd.shutdown(socket.SHUT_RD)
+        self.lisfd.close()
