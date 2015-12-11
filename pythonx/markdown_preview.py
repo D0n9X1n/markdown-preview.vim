@@ -6,6 +6,7 @@ import markdown_parser
 import webbrowser
 import os, platform
 import commands
+import threading
 
 def markdownPreviewWithDefaultCodeStyle():
     cssName = vim.eval("a:args1")
@@ -27,6 +28,7 @@ def markdownPreviewWithDefaultCodeStyle():
     content += '<link rel="stylesheet" href="' + cssDir + '/code-styles/default.css">\n'
     content += '<link href="' + cssDir + '/' + cssName + '.css" media="all" rel="stylesheet"/>\n'
     content += '<script src="' + cssDir + '/js/highlight.min.js"></script>\n'
+    content += '<script src="' + cssDir + '/js/jquery-1.11.3.min.js"></script>\n'
     content += '<script src="' + cssDir + '/js/highlight.pack.js"></script>\n'
     content += '<script>hljs.initHighlightingOnLoad();</script>\n'
     content += '</head>\n<body>'
@@ -66,6 +68,7 @@ def markdownPreviewWithCustomCodeStyle():
     content += '<link href="' + cssDir + '/' + cssName + '.css" media="all" rel="stylesheet"/>\n'
     content += '<script src="' + cssDir + '/js/highlight.min.js"></script>\n'
     content += '<script src="' + cssDir + '/js/highlight.pack.js"></script>\n'
+    content += '<script src="' + cssDir + '/js/jquery-1.11.3.min.js"></script>\n'
     content += '<script>hljs.initHighlightingOnLoad();</script>\n'
     content += '</head>\n<body>'
     buff = ''
@@ -81,3 +84,4 @@ def markdownPreviewWithCustomCodeStyle():
 
     url = 'file:///' + currentpath + '/tmp.html'
     webbrowser.open(url)
+
