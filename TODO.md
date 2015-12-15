@@ -10,6 +10,7 @@
 7. add config introduction
 8. when add a new line, the brower dose not go to the bottom
     + use config to control the move
+9. improve the live preview performance
 
 
 ###BUGS
@@ -19,6 +20,3 @@
     > ![bug](./images/bug-1.jpg)
 
 4. new bug, when edit in different folder the image is empty
-
-###TODO
-1. improve the live preview performance
