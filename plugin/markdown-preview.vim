@@ -34,7 +34,6 @@ endfunction
 let s:SourcedFile=expand("<sfile>")
 call MarkdownPath()
 
-
 function! MarkdownPreviewInit()
 python << EOF
 import markdown_init
@@ -58,6 +57,7 @@ python << EOF
 import markdown_preview
 markdown_preview.liveMarkdownPreviewEnd()
 EOF
+call ClearAll()
 endfunction
 
 function! MarkdownPreviewWithCustomCodeStyle(args1, args2)

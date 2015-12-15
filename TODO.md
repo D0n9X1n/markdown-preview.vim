@@ -19,3 +19,6 @@
     > ![bug](./images/bug-1.jpg)
 
 4. new bug, when edit in different folder the image is empty
+
+###TODO
+1. improve the live preview performance
