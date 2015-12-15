@@ -41,9 +41,7 @@ markdown_init.init()
 EOF
 endfunction
 
-if empty(glob('~/.vim/MarkDownCSS/'.$VERSION))
-    call MarkdownPreviewInit()
-endif
+call MarkdownPreviewInit()
 
 function! LiveMarkdownPreviewStart()
 python << EOF
@@ -78,7 +76,10 @@ function! ClearAll()
 python << EOF
 import os, commands
 currentpath = commands.getstatusoutput("pwd")[1]
-os.remove(os.path.join(currentpath, 'tmp.html'))
+try:
+    os.remove(os.path.join(currentpath, 'tmp.html'))
+except Exception:
+    print ""
 EOF
 endfunction
 

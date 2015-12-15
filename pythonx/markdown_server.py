@@ -1,8 +1,7 @@
 #!/usr/bin/python
 import socket
+import json
 import signal
-import errno
-import markdown_parser
 import markdown_preview
 import threading
 import markdown_lib
@@ -45,13 +44,17 @@ class Server(threading.Thread):
                 break;
 
             content = markdown_preview.getBuff()
-            markdown_lib._print(content)
+            content = json.encoder.encode_basestring(content)
+            #  markdown_lib._print(content)
             confd.send(self.Response(header, content))
             confd.close()
 
     def endServer(self):
         self.isRun = False
-        conn = httplib.HTTPConnection("localhost:"+str(self.PORT))
-        conn.request('GET', '/')
-        self.lisfd.shutdown(socket.SHUT_RD)
-        self.lisfd.close()
+        try:
+            conn = httplib.HTTPConnection("localhost:"+str(self.PORT))
+            conn.request('GET', '/')
+            self.lisfd.shutdown(socket.SHUT_RD)
+            self.lisfd.close()
+        except Exception:
+            print "Markdown Server is Down"

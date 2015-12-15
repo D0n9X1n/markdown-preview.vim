@@ -6,9 +6,7 @@ import markdown_parser
 import webbrowser
 import os, platform
 import commands
-import threading
 import markdown_server
-import markdown_lib
 
 def markdownPreviewWithDefaultCodeStyle():
     cssName = vim.eval("a:args1")
