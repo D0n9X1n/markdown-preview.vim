@@ -7,6 +7,7 @@ import markdown_preview
 import threading
 import markdown_lib
 import sys
+import httplib
 
 class Server(threading.Thread):
 
@@ -50,5 +51,7 @@ class Server(threading.Thread):
 
     def endServer(self):
         self.isRun = False
+        conn = httplib.HTTPConnection("localhost:"+str(self.PORT))
+        conn.request('GET', '/')
         self.lisfd.shutdown(socket.SHUT_RD)
         self.lisfd.close()

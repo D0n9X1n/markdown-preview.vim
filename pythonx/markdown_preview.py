@@ -44,13 +44,13 @@ def markdownPreviewWithCustomCodeStyle():
 SERVER = None
 def liveMarkdownPreviewStart():
     global SERVER
-    SERVER = markdown_server.Server(20013)
+    SERVER = markdown_server.Server(20016)
     threads = []
     threads.append(SERVER)
     for thread in threads:
         thread.start()
 
-    content = getHead()
+    content = getHead(True)
     content += getBuff()
     content += getBody()
     currentpath = commands.getstatusoutput("pwd")[1]
@@ -71,7 +71,7 @@ def getBuff():
         buff += line + '\n'
     return markdown_parser.markdown(buff)
 
-def getHead(cssstyle = 'Github', codesytle = 'default'):
+def getHead(isLive = False, cssstyle = 'Github', codesytle = 'default'):
     if vim.eval("exists('g:MarkDownResDir')") == '1':
         cssDir = vim.eval('g:MarkDownResDir')
     else:
@@ -91,6 +91,8 @@ def getHead(cssstyle = 'Github', codesytle = 'default'):
     content += '<script src="' + cssDir + '/js/highlight.pack.js"></script>\n'
     content += '<script src="' + cssDir + '/js/jquery-1.11.3.min.js"></script>\n'
     content += '<script>hljs.initHighlightingOnLoad();</script>\n'
+    if isLive:
+        content += '<script src="' + cssDir + '/js/autoload.js"></script>\n'
     content += '</head>\n<body id="content">'
     return content
 
