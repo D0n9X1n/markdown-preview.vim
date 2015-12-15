@@ -3,8 +3,9 @@
 *.pyc
 
 ### .git template
-MarkDownRes/*
 MarkDownRes
+MarkDownRes/1.1.0
+resources/1.1.0
 
 
 ### Tags template
