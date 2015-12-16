@@ -1,3 +1,9 @@
+""""""""""""""""""""""""""""""""""""""""""""
+let VERSION = '2.0.0'
+let AUTHOR  = 'Mike Tang'
+let EMAIL   = 'mikecoder.cn@gmail.com'
+""""""""""""""""""""""""""""""""""""""""""""
+
 if !has('python')
     echo 'Error: Required vim compile with +python'
     finish
@@ -28,7 +34,6 @@ endfunction
 let s:SourcedFile=expand("<sfile>")
 call MarkdownPath()
 
-
 function! MarkdownPreviewInit()
 python << EOF
 import markdown_init
@@ -36,9 +41,22 @@ markdown_init.init()
 EOF
 endfunction
 
-if empty(glob('~/.vim/MarkDownCSS/default.css'))
-    call MarkdownPreviewInit()
-endif
+call MarkdownPreviewInit()
+
+function! LiveMarkdownPreviewStart()
+python << EOF
+import markdown_preview
+markdown_preview.liveMarkdownPreviewStart()
+EOF
+endfunction
+
+function! LiveMarkdownPreviewEnd()
+python << EOF
+import markdown_preview
+markdown_preview.liveMarkdownPreviewEnd()
+EOF
+call ClearAll()
+endfunction
 
 function! MarkdownPreviewWithCustomCodeStyle(args1, args2)
 python << EOF
@@ -58,7 +76,10 @@ function! ClearAll()
 python << EOF
 import os, commands
 currentpath = commands.getstatusoutput("pwd")[1]
-os.remove(os.path.join(currentpath, 'tmp.html'))
+try:
+    os.remove(os.path.join(currentpath, 'tmp.html'))
+except Exception:
+    print ""
 EOF
 endfunction
 
@@ -83,3 +104,11 @@ if !exists(':MarkdownPreviewWithCustomCodeStyle')
 endif
 
 map <leader>m :MarkdownPreviewWithCustomCodeStyleCodeStyle Github zenburn<CR>
+if !exists(':LiveMarkdownPreviewStart')
+    command -nargs=0 LiveMarkdownPreviewStart call LiveMarkdownPreviewStart()
+endif
+
+if !exists(':LiveMarkdownPreviewEnd')
+    command -nargs=0 LiveMarkdownPreviewEnd call LiveMarkdownPreviewEnd()
+endif
+
