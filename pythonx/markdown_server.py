@@ -15,7 +15,6 @@ class Server(threading.Thread):
         return response
 
     def sigIntHander(self, signo, frame):
-        self.isRun
         self.isRun = False
         self.lisfd.shutdown(socket.SHUT_RD)
 
@@ -44,7 +43,7 @@ class Server(threading.Thread):
                 break;
 
             content = markdown_preview.getBuff()
-            content = json.encoder.encode_basestring(content)
+            #  content = json.dumps(content)
             #  markdown_lib._print(content)
             confd.send(self.Response(header, content))
             confd.close()

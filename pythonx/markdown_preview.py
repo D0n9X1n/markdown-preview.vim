@@ -7,6 +7,7 @@ import webbrowser
 import os, platform
 import commands
 import markdown_server
+import markdown_lib
 
 def markdownPreviewWithDefaultCodeStyle():
     cssName = vim.eval("a:args1")
@@ -64,10 +65,19 @@ def liveMarkdownPreviewEnd():
         SERVER.endServer()
 
 def getBuff():
+    lineNum, curLineNum = 0, vim.current.window.cursor[0] - 1
+    markdown_lib._print(curLineNum)
     buff = ''
     for line in vim.current.buffer:
-        buff += line + '\n'
-    return markdown_parser.markdown(buff)
+        if lineNum == curLineNum:
+            if line.startswith("```") or line.startswith('===') or line.startswith("---") or line == "":
+                buff += line + '\n{ANCHOR}\n'
+            else: buff += line + '{ANCHOR}\n'
+        else: buff += line + '\n'
+        lineNum = lineNum + 1
+    buff = markdown_parser.markdown(buff)
+    buff = buff.replace('{ANCHOR}', '<a id="anchor"></a>')
+    return buff
 
 def getHead(isLive = False, cssstyle = 'Github', codesytle = 'default'):
     if vim.eval("exists('g:MarkDownResDir')") == '1':

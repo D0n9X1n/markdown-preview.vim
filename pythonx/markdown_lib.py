@@ -3,7 +3,7 @@
 
 def _print(value = ''):
     logfile = open('all.log','a')
-    logfile.write(value + '\n')
+    logfile.write(str(value) + '\n')
     logfile.flush()
     logfile.close()
 

@@ -9,6 +9,7 @@ Yet another vim markdown preview plugin.
 3. **Code Hightlight**
 4. Easy to custom your own css style
 5. Code custom style hightlight(using [hightlight.js](https://highlightjs.org/))
+6. Sync Scroll
 
 ####Installing
 
@@ -20,11 +21,9 @@ Yet another vim markdown preview plugin.
 3. then you can write this plugin url into your **.vimrc** file, like **Plugin 'MikeCoder/markdown-preview.vim'**
 4. then use **PluginInstall** to install the plugin
 
-
 ##### Recommand:[k-vim](https://github.com/wklken/k-vim)
 1. add **Bundle 'MikeCoder/markdown-preview.vim'** to your **vimrc.bundle** file
 2. and exec **BundleInstall** to install the plugin
-
 
 ##### Usual Install
 1. this is not a good choice, make sure every step is right
@@ -46,6 +45,7 @@ map <leader>m :MarkdownPreview GitHub<CR>
 ```
 
 #####Advanced Usage
+######Preview with custom code sytle and body style
 1. use **:MarkdownPreviewWithCustomCodeStyle css-style code-style** instead
 2. you can use custom css style and code hightlight style
 3. the following code styles are you can use:
@@ -62,6 +62,14 @@ map <leader>m :MarkdownPreview GitHub<CR>
 4. these code css files are in your **~/.vim/MarkDownRes/code-styles** folder
 5. for example, when you use **:MarkdownPreviewWithCustomCodeStyle Github zenburn**, when edit the [TEST.md](./TEST.md)
     ![code hightlight example](./images/code-style.png)
+
+######Preview with live
+1. use **:LiveMarkdownPreviewStart** to start the brower and the markdown server
+2. you can see your default browser open your markdown page
+3. and you can see what you type in the brower and move to your current position
+4. **IMPORTANT** please remember to use **:LiveMarkdownPreviewEnd** to end the server
+5. if you forget to end the server and you may fail to preview again
+6. when you see the **Address already in use**, you can use the shell to kill the previous vim process **killall -9 vim** to reset the server
 
 ####Custom
 this theme is in the css folder, if you want to change it to your favorite theme. follow the steps:
