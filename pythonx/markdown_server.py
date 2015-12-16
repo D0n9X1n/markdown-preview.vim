@@ -27,7 +27,8 @@ class Server(threading.Thread):
             self.lisfd.bind((self.HOST, self.PORT))
             self.lisfd.listen(2)
             signal.signal(signal.SIGINT, self.sigIntHander)
-        except Exception:
+        except Exception as e:
+            print e
             print "the previous live preview may not close, only one live be allowed. if not, use killall -9 vim to kill the previous vim process"
             self.endServer()
 
@@ -53,9 +54,10 @@ class Server(threading.Thread):
     def endServer(self):
         self.isRun = False
         try:
-            conn = httplib.HTTPConnection("localhost:"+str(self.PORT))
-            conn.request('GET', '/')
             self.lisfd.shutdown(socket.SHUT_RD)
             self.lisfd.close()
-        except Exception:
+            conn = httplib.HTTPConnection("localhost:"+str(self.PORT))
+            conn.request('GET', '/')
+        except Exception as e:
+            print e
             print "Markdown Server is Down"
