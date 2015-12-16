@@ -29,6 +29,7 @@ class Server(threading.Thread):
             signal.signal(signal.SIGINT, self.sigIntHander)
         except Exception:
             print "the previous live preview may not close, only one live be allowed. if not, use killall -9 vim to kill the previous vim process"
+            self.endServer()
 
     def run(self):
         self.startServer()
