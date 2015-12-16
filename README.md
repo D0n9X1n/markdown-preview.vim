@@ -64,6 +64,9 @@ map <leader>m :MarkdownPreview GitHub<CR>
     ![code hightlight example](./images/code-style.png)
 
 ######Preview with live
+
+![exmaple](./images/example.gif)
+
 1. use **:LiveMarkdownPreviewStart** to start the brower and the markdown server
 2. you can see your default browser open your markdown page
 3. and you can see what you type in the brower and move to your current position

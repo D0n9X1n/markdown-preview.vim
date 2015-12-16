@@ -13,7 +13,7 @@ def markdownPreviewWithDefaultCodeStyle():
     cssName = vim.eval("a:args1")
     currentpath = commands.getstatusoutput("pwd")[1]
 
-    content = getHead(cssName)
+    content = getHead(False, cssName)
     content += getBuff()
     content += getBody()
 
@@ -29,7 +29,7 @@ def markdownPreviewWithCustomCodeStyle():
     codeName    = vim.eval("a:args2")
     currentpath = commands.getstatusoutput("pwd")[1]
 
-    content = getHead(cssName, codeName)
+    content = getHead(False, cssName, codeName)
     content += getBuff()
     content += getBody()
 
@@ -99,7 +99,7 @@ def getHead(isLive = False, cssstyle = 'Github', codesytle = 'default'):
     content += '<script src="' + cssDir + '/js/highlight.pack.js"></script>\n'
     content += '<script src="' + cssDir + '/js/jquery-1.11.3.min.js"></script>\n'
     content += '<script>hljs.initHighlightingOnLoad();</script>\n'
-    if isLive:
+    if isLive == True:
         content += '<script src="' + cssDir + '/js/autoload.js"></script>\n'
     content += '</head>\n<body id="content">'
     return content
