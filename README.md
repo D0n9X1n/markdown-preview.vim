@@ -62,7 +62,7 @@ map <leader>m :MarkdownPreview GitHub<CR>
 5. for example, when you use **:MarkdownPreviewWithCustomCodeStyle Github zenburn**, when edit the [TEST.md](./TEST.md)
     ![code hightlight example](./images/code-style.png)
 
-######Preview with live
+######Preview with live (*experiment*)
 
 ![exmaple](./images/example.gif)
 
@@ -71,7 +71,7 @@ map <leader>m :MarkdownPreview GitHub<CR>
 3. and you can see what you type in the brower and move to your current position
 4. **IMPORTANT** please remember to use **:LiveMarkdownPreviewEnd** to end the server
 5. if you forget to end the server and you may fail to preview again
-6. when you see the **Address already in use**, you can use the shell to kill the previous vim process **killall -9 vim** to reset the server
+6. when you see the **Address already in use**, you can use the shell to kill the previous vim process **killall -9 vim or find your vim process maybe it call Vim** to reset the server
 
 ####Custom
 this theme is in the css folder, if you want to change it to your favorite theme. follow the steps:

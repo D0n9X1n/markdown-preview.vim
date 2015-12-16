@@ -57,7 +57,6 @@ def liveMarkdownPreviewStart():
             print "Server is Wrong"
         else:
             SERVER.start()
-
             content = getHead(True)
             content += getBuff()
             content += getBody()
@@ -72,8 +71,7 @@ def liveMarkdownPreviewStart():
 def liveMarkdownPreviewEnd():
     global SERVER
     try:
-        if SERVER != None:
-            SERVER.endServer()
+        SERVER.endServer()
     except Exception:
         print "Server is DOWN"
 

@@ -1,12 +1,9 @@
 #!/usr/bin/python
 import socket
-import json
-import signal
 import markdown_preview
 import threading
-import markdown_lib
 import sys
-import httplib
+import time
 
 class Server(threading.Thread):
 
@@ -14,23 +11,23 @@ class Server(threading.Thread):
         response = "%s %d\r\n\r\n%s\r\n\r\n" % (header, sys.maxint, content)
         return response
 
-    def sigIntHander(self, signo, frame):
-        self.isRun = False
-        self.lisfd.shutdown(socket.SHUT_RD)
-
     def isOK(self):
         return self.isOk
 
     def __init__(self, port):
         try:
+            try:
+                self.lisfd.close()
+            except Exception:
+                pass
             self.PORT = port
             self.HOST = "localhost"
-            threading.Thread.__init__(self)
-            self.lisfd = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+            self.lisfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.lisfd.bind((self.HOST, self.PORT))
-            self.lisfd.listen(2)
-            signal.signal(signal.SIGINT, self.sigIntHander)
+            self.lisfd.listen(10)
             self.isOk = True
+            threading.Thread.__init__(self)
         except Exception as e:
             self.isRun = False
             self.isOk = False
@@ -61,11 +58,12 @@ class Server(threading.Thread):
         self.isRun = False
         try:
             try:
-                conn = httplib.HTTPConnection("localhost:"+str(self.PORT))
-                conn.request('GET', '/')
+                time.sleep(1)
+                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                sock.connect((self.HOST, self.PORT))
+                sock.send('1')
             except Exception as e:
                 print e
-            self.lisfd.shutdown(socket.SHUT_RD)
             self.lisfd.close()
         except Exception as e:
             print e
