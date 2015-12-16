@@ -19,13 +19,16 @@ class Server(threading.Thread):
         self.lisfd.shutdown(socket.SHUT_RD)
 
     def __init__(self, port):
-        self.PORT = port
-        self.HOST = "localhost"
-        threading.Thread.__init__(self)
-        self.lisfd = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-        self.lisfd.bind((self.HOST, self.PORT))
-        self.lisfd.listen(2)
-        signal.signal(signal.SIGINT, self.sigIntHander)
+        try:
+            self.PORT = port
+            self.HOST = "localhost"
+            threading.Thread.__init__(self)
+            self.lisfd = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+            self.lisfd.bind((self.HOST, self.PORT))
+            self.lisfd.listen(2)
+            signal.signal(signal.SIGINT, self.sigIntHander)
+        except Exception:
+            print "the previous live preview may not close, only one live be allowed. if not, use killall -9 vim to kill the previous vim process"
 
     def run(self):
         self.startServer()
@@ -43,8 +46,6 @@ class Server(threading.Thread):
                 break;
 
             content = markdown_preview.getBuff()
-            #  content = json.dumps(content)
-            #  markdown_lib._print(content)
             confd.send(self.Response(header, content))
             confd.close()
 
