@@ -15,6 +15,6 @@ function refresh() {
                 easing: "swing"
             });
         }
+        setTimeout("refresh()", 200);
     });
-    setTimeout("refresh()", 200);
 }
