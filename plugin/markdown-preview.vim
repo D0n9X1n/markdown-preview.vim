@@ -82,4 +82,4 @@ if !exists(':MarkdownPreviewWithCustomCodeStyle')
     command -nargs=* MarkdownPreviewWithCustomCodeStyleCodeStyle call PreviewWithCustomCodeStyle(<f-args>)
 endif
 
-map <leader>m :MarkdownPreview GitHub<CR>
+map <leader>m :MarkdownPreviewWithCustomCodeStyleCodeStyle Github zenburn<CR>
