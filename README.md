@@ -1,6 +1,5 @@
 VIM Markdown Preview
 ---
-
 Yet another vim markdown preview plugin.
 
 ####Why you need this

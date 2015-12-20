@@ -66,7 +66,7 @@ def liveMarkdownPreviewEnd():
 
 def getBuff():
     lineNum, curLineNum = 0, vim.current.window.cursor[0] - 1
-    markdown_lib._print(curLineNum)
+    #  markdown_lib._print(curLineNum)
     buff = ''
     for line in vim.current.buffer:
         if lineNum == curLineNum:
