@@ -103,6 +103,7 @@ if !exists(':MarkdownPreviewWithCustomCodeStyle')
     command -nargs=* MarkdownPreviewWithCustomCodeStyleCodeStyle call PreviewWithCustomCodeStyle(<f-args>)
 endif
 
+map <leader>m :MarkdownPreviewWithCustomCodeStyleCodeStyle Github zenburn<CR>
 if !exists(':LiveMarkdownPreviewStart')
     command -nargs=0 LiveMarkdownPreviewStart call LiveMarkdownPreviewStart()
 endif
@@ -111,4 +112,3 @@ if !exists(':LiveMarkdownPreviewEnd')
     command -nargs=0 LiveMarkdownPreviewEnd call LiveMarkdownPreviewEnd()
 endif
 
-map <leader>m :MarkdownPreview GitHub<CR>

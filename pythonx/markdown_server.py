@@ -1,12 +1,9 @@
 #!/usr/bin/python
 import socket
-import json
-import signal
 import markdown_preview
 import threading
-import markdown_lib
 import sys
-import httplib
+import time
 
 class Server(threading.Thread):
 
@@ -14,22 +11,28 @@ class Server(threading.Thread):
         response = "%s %d\r\n\r\n%s\r\n\r\n" % (header, sys.maxint, content)
         return response
 
-    def sigIntHander(self, signo, frame):
-        self.isRun = False
-        self.lisfd.shutdown(socket.SHUT_RD)
+    def isOK(self):
+        return self.isOk
 
     def __init__(self, port):
         try:
+            try:
+                self.lisfd.close()
+            except Exception:
+                pass
             self.PORT = port
             self.HOST = "localhost"
-            threading.Thread.__init__(self)
-            self.lisfd = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+            self.lisfd = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.lisfd.bind((self.HOST, self.PORT))
-            self.lisfd.listen(2)
-            signal.signal(signal.SIGINT, self.sigIntHander)
-        except Exception:
+            self.lisfd.listen(10)
+            self.isOk = True
+            threading.Thread.__init__(self)
+        except Exception as e:
+            self.isRun = False
+            self.isOk = False
+            print e
             print "the previous live preview may not close, only one live be allowed. if not, use killall -9 vim to kill the previous vim process"
-            self.endServer()
 
     def run(self):
         self.startServer()
@@ -41,7 +44,8 @@ class Server(threading.Thread):
             try:
                 confd,addr = self.lisfd.accept()
             except socket.error as e:
-                continue
+                print e
+                self.isRun = False
 
             if self.isRun == False:
                 break;
@@ -53,9 +57,14 @@ class Server(threading.Thread):
     def endServer(self):
         self.isRun = False
         try:
-            conn = httplib.HTTPConnection("localhost:"+str(self.PORT))
-            conn.request('GET', '/')
-            self.lisfd.shutdown(socket.SHUT_RD)
+            try:
+                time.sleep(1)
+                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                sock.connect((self.HOST, self.PORT))
+                sock.send('1')
+            except Exception as e:
+                print e
             self.lisfd.close()
-        except Exception:
+        except Exception as e:
+            print e
             print "Markdown Server is Down"
