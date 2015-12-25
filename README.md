@@ -21,8 +21,8 @@ Yet another vim markdown preview plugin.
 4. then use **PluginInstall** to install the plugin
 
 ##### Recommand:[k-vim](https://github.com/wklken/k-vim)
-1. add **Bundle 'MikeCoder/markdown-preview.vim'** to your **vimrc.bundle** file
-2. and exec **BundleInstall** to install the plugin
+1. add **Plug 'MikeCoder/markdown-preview.vim'** to your **vimrc.bundle** file
+2. and exec **PlugInstall** to install the plugin
 
 ##### Usual Install
 1. this is not a good choice, make sure every step is right
@@ -95,7 +95,7 @@ wish you have a nice day
 ####LECENSE
 The MIT License (MIT)
 
-Copyright © 2015 [TangDongxin](http://mikecoder.cn)
+Copyright © 2015 TangDongxin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software
 and associated documentation files (the “Software”), to deal in the Software without restriction,
