@@ -1,9 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""
-let VERSION = '2.0.0'
-let AUTHOR  = 'Mike Tang'
-let EMAIL   = 'mikecoder.cn@gmail.com'
+" let VERSION = '2.0.0'
+" let AUTHOR  = 'Mike Tang'
+" let EMAIL   = 'mikecoder.cn@gmail.com'
 """"""""""""""""""""""""""""""""""""""""""""
-
 if !has('python')
     echo 'Error: Required vim compile with +python'
     finish
