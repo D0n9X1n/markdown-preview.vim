@@ -20,9 +20,11 @@ Yet another vim markdown preview plugin.
 3. then you can write this plugin url into your **.vimrc** file, like **Plugin 'MikeCoder/markdown-preview.vim'**
 4. then use **PluginInstall** to install the plugin
 
-##### Recommand:[k-vim](https://github.com/wklken/k-vim)
-1. add **Plug 'MikeCoder/markdown-preview.vim'** to your **vimrc.bundle** file
-2. and exec **PlugInstall** to install the plugin
+##### **IMPORTANT**:[k-vim](https://github.com/wklken/k-vim) users must read this
+> if you use the 9.* version of k-vim or plug.vim to manager the plugins, it will not load the plugin, this is a bug of plug.vim
+
+1. add **Bundle 'MikeCoder/markdown-preview.vim'** to your **vimrc.bundle** file
+2. and exec **BundleInstall** to install the plugin
 
 ##### Usual Install
 1. this is not a good choice, make sure every step is right
