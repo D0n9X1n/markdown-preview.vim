@@ -22,11 +22,13 @@ Yet another vim markdown preview plugin.
 
 ##### **IMPORTANT**:[k-vim](https://github.com/wklken/k-vim) users must read this
 **if your version is 9.x**
+
 1. add **Plug 'MikeCoder/markdown-preview.vim'** to your **vimrc.bundle** file
 2. Must before the `call plug#end()` line
 2. and exec **PlugInstall** to install the plugin
 
 **if your version is 8.x**
+
 1. add **Bundle 'MikeCoder/markdown-preview.vim'** to your **vimrc.bundle** file
 2. and exec **BundleInstall** to install the plugin
 
