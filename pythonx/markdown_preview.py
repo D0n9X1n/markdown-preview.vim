@@ -11,7 +11,7 @@ import markdown_lib
 
 def markdownPreviewWithDefaultCodeStyle():
     cssName = vim.eval("a:args1")
-    currentpath = commands.getstatusoutput("pwd")[1]
+    currentpath = os.getcwd()
 
     content = getHead(False, cssName)
     content += getBuff()
