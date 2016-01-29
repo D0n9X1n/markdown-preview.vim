@@ -79,8 +79,8 @@ endfunction
 
 function! ClearAll()
 python << EOF
-import os, commands
-currentpath = commands.getstatusoutput("pwd")[1]
+import os
+currentpath = os.getcwd()
 try:
     os.remove(os.path.join(currentpath, 'tmp.html'))
 except Exception:

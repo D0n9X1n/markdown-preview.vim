@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
-import os, vim, platform, commands, shutil, sys
+import os, vim, platform, shutil, sys
 import markdown_version
 
 def init():
@@ -26,14 +26,10 @@ def init():
 
     if not os.path.isdir(DisResDir) or not os.path.isfile(os.path.join(DisResDir, markdown_version.__PLUGIN_VERSION__)):
         if os.path.isdir(DisResDir):
-            commands.getoutput('rm -rf ' + DisResDir)
+            os.rmdir(DisResDir)
             print 'updating markdown-preview plugin...'
 
-        if platform.system() == 'Windows':
-            # not test on windows
-            print commands.getoutput('xcopy /E ' + SourceResDir + ' ' + DisResDir)
-        else:
-            print commands.getoutput('cp -R ' + SourceResDir + ' ' + DisResDir)
+        shutil.copytree(SourceResDir,DisResDir)
 
         open(os.path.join(DisResDir, markdown_version.__PLUGIN_VERSION__), "w")
 
