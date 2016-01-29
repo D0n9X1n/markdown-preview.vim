@@ -94,7 +94,7 @@ def getHead(isLive = False, cssstyle = 'Github', codesytle = 'default'):
         cssDir = vim.eval('g:MarkDownResDir')
     else:
         if platform.system() == 'Windows':
-            cssDir = os.path.join(vim.eval('$HOME'), 'vimfiles', 'MarkDownRes')
+            cssDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
         elif vim.eval("has('nvim')") == '1':
             cssDir = os.path.join(vim.eval('$HOME'),'.nvim', 'MarkDownRes')
         else:

@@ -8,7 +8,7 @@ def init():
         DisResDir = vim.eval('g:MarkDownResDir')
     else:
         if platform.system() == 'Windows':
-            DisResDir = os.path.join(vim.eval('$HOME'), 'vimfiles', 'MarkDownRes')
+            DisResDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
         elif vim.eval("has('nvim')") == '1':
             DisResDir = os.path.join(vim.eval('$HOME'),'.nvim', 'MarkDownRes')
         else:
@@ -18,7 +18,7 @@ def init():
         SourceResDir = vim.eval('g:SourceMarkDownResDir')
     else:
         if platform.system() == 'Windows':
-            SourceResDir = os.path.join(vim.eval('$HOME'), 'vimfiles', 'bundle/markdown-preview.vim/resources')
+            SourceResDir = os.path.join(vim.eval('$HOME'), '.vim', 'bundle/markdown-preview.vim/resources')
         elif vim.eval("has('nvim')") == '1':
             SourceResDir = os.path.join(vim.eval('$HOME'),'.nvim', 'bundle/markdown-preview.vim/resources')
         else:
