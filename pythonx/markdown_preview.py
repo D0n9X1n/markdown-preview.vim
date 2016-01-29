@@ -5,7 +5,6 @@ import vim
 import markdown_parser
 import webbrowser
 import os, platform
-import commands
 import markdown_server
 import markdown_lib
 
@@ -27,7 +26,7 @@ def markdownPreviewWithDefaultCodeStyle():
 def markdownPreviewWithCustomCodeStyle():
     cssName     = vim.eval("a:args1")
     codeName    = vim.eval("a:args2")
-    currentpath = commands.getstatusoutput("pwd")[1]
+    currentpath = os.getcwd()
 
     content = getHead(False, cssName, codeName)
     content += getBuff()
@@ -60,7 +59,7 @@ def liveMarkdownPreviewStart():
             content = getHead(True)
             content += getBuff()
             content += getBody()
-            currentpath = commands.getstatusoutput("pwd")[1]
+            currentpath = os.getcwd()
             file = open(os.path.join(currentpath, 'tmp.html'), 'w')
             file.write(content)
             file.close()
@@ -95,7 +94,7 @@ def getHead(isLive = False, cssstyle = 'Github', codesytle = 'default'):
         cssDir = vim.eval('g:MarkDownResDir')
     else:
         if platform.system() == 'Windows':
-            cssDir = os.path.join(vim.eval('$HOME'), 'vimfiles', 'MarkDownRes')
+            cssDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
         elif vim.eval("has('nvim')") == '1':
             cssDir = os.path.join(vim.eval('$HOME'),'.nvim', 'MarkDownRes')
         else:

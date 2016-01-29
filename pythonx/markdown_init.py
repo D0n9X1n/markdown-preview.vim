@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
-import os, vim, platform, commands, shutil, sys
+import os, vim, platform, shutil, sys
 import markdown_version
 
 def init():
@@ -8,7 +8,7 @@ def init():
         DisResDir = vim.eval('g:MarkDownResDir')
     else:
         if platform.system() == 'Windows':
-            DisResDir = os.path.join(vim.eval('$HOME'), 'vimfiles', 'MarkDownRes')
+            DisResDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
         elif vim.eval("has('nvim')") == '1':
             DisResDir = os.path.join(vim.eval('$HOME'),'.nvim', 'MarkDownRes')
         else:
@@ -18,7 +18,7 @@ def init():
         SourceResDir = vim.eval('g:SourceMarkDownResDir')
     else:
         if platform.system() == 'Windows':
-            SourceResDir = os.path.join(vim.eval('$HOME'), 'vimfiles', 'bundle/markdown-preview.vim/resources')
+            SourceResDir = os.path.join(vim.eval('$HOME'), '.vim', 'bundle/markdown-preview.vim/resources')
         elif vim.eval("has('nvim')") == '1':
             SourceResDir = os.path.join(vim.eval('$HOME'),'.nvim', 'bundle/markdown-preview.vim/resources')
         else:
@@ -26,14 +26,10 @@ def init():
 
     if not os.path.isdir(DisResDir) or not os.path.isfile(os.path.join(DisResDir, markdown_version.__PLUGIN_VERSION__)):
         if os.path.isdir(DisResDir):
-            commands.getoutput('rm -rf ' + DisResDir)
+            os.rmdir(DisResDir)
             print 'updating markdown-preview plugin...'
 
-        if platform.system() == 'Windows':
-            # not test on windows
-            print commands.getoutput('xcopy /E ' + SourceResDir + ' ' + DisResDir)
-        else:
-            print commands.getoutput('cp -R ' + SourceResDir + ' ' + DisResDir)
+        shutil.copytree(SourceResDir,DisResDir)
 
         open(os.path.join(DisResDir, markdown_version.__PLUGIN_VERSION__), "w")
 
