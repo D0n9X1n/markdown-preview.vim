@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 # encoding: utf-8
-import os, vim, platform, shutil, sys
+import os
+import vim
+import platform
+import shutil
 import markdown_version
+
 
 def init():
     if vim.eval("exists('g:MarkDownResDir')") == '1':
@@ -10,7 +14,7 @@ def init():
         if platform.system() == 'Windows':
             DisResDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
         elif vim.eval("has('nvim')") == '1':
-            DisResDir = os.path.join(vim.eval('$HOME'),'.nvim', 'MarkDownRes')
+            DisResDir = os.path.join(vim.eval('$HOME'), '.nvim', 'MarkDownRes')
         else:
             DisResDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
 
@@ -20,7 +24,7 @@ def init():
         if platform.system() == 'Windows':
             SourceResDir = os.path.join(vim.eval('$HOME'), '.vim', 'bundle/markdown-preview.vim/resources')
         elif vim.eval("has('nvim')") == '1':
-            SourceResDir = os.path.join(vim.eval('$HOME'),'.nvim', 'bundle/markdown-preview.vim/resources')
+            SourceResDir = os.path.join(vim.eval('$HOME'), '.nvim', 'bundle/markdown-preview.vim/resources')
         else:
             SourceResDir = os.path.join(vim.eval('$HOME'), '.vim', 'bundle/markdown-preview.vim/resources')
 
@@ -29,7 +33,7 @@ def init():
             os.rmdir(DisResDir)
             print 'updating markdown-preview plugin...'
 
-        shutil.copytree(SourceResDir,DisResDir)
+        shutil.copytree(SourceResDir, DisResDir)
 
         open(os.path.join(DisResDir, markdown_version.__PLUGIN_VERSION__), "w")
 

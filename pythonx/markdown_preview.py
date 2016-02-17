@@ -4,9 +4,10 @@ import socket
 import vim
 import markdown_parser
 import webbrowser
-import os, platform
+import os
+import platform
 import markdown_server
-import markdown_lib
+
 
 def markdownPreviewWithDefaultCodeStyle():
     cssName = vim.eval("a:args1")
@@ -23,9 +24,10 @@ def markdownPreviewWithDefaultCodeStyle():
     url = 'file:///' + currentpath + '/tmp.html'
     webbrowser.open(url)
 
+
 def markdownPreviewWithCustomCodeStyle():
-    cssName     = vim.eval("a:args1")
-    codeName    = vim.eval("a:args2")
+    cssName = vim.eval("a:args1")
+    codeName = vim.eval("a:args2")
     currentpath = os.getcwd()
 
     content = getHead(False, cssName, codeName)
@@ -39,6 +41,7 @@ def markdownPreviewWithCustomCodeStyle():
     url = 'file:///' + currentpath + '/tmp.html'
     webbrowser.open(url)
 
+
 def checkPort():
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
@@ -47,7 +50,7 @@ def checkPort():
         return False
     return True
 
-SERVER = None
+
 def liveMarkdownPreviewStart():
     global SERVER
     if checkPort():
@@ -65,7 +68,9 @@ def liveMarkdownPreviewStart():
             file.close()
             url = 'file:///' + currentpath + '/tmp.html'
             webbrowser.open(url)
-    else: print "Don't use the command twice, or you may not close the previous vim"
+    else:
+        print "Don't use the command twice, or you may not close the previous vim"
+
 
 def liveMarkdownPreviewEnd():
     global SERVER
@@ -73,6 +78,7 @@ def liveMarkdownPreviewEnd():
         SERVER.endServer()
     except Exception:
         print "Server is DOWN"
+
 
 def getBuff():
     lineNum, curLineNum = 0, vim.current.window.cursor[0] - 1
@@ -82,21 +88,24 @@ def getBuff():
         if lineNum == curLineNum:
             if line.startswith("```") or line.startswith('===') or line.startswith("---") or line == "":
                 buff += line + '\n{ANCHOR}\n'
-            else: buff += line + '{ANCHOR}\n'
-        else: buff += line + '\n'
+            else:
+                buff += line + '{ANCHOR}\n'
+        else:
+            buff += line + '\n'
         lineNum = lineNum + 1
     buff = markdown_parser.markdown(buff)
     buff = buff.replace('{ANCHOR}', '<a id="anchor"></a>')
     return buff
 
-def getHead(isLive = False, cssstyle = 'Github', codesytle = 'default'):
+
+def getHead(isLive=False, cssstyle='Github', codesytle='default'):
     if vim.eval("exists('g:MarkDownResDir')") == '1':
         cssDir = vim.eval('g:MarkDownResDir')
     else:
         if platform.system() == 'Windows':
             cssDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
         elif vim.eval("has('nvim')") == '1':
-            cssDir = os.path.join(vim.eval('$HOME'),'.nvim', 'MarkDownRes')
+            cssDir = os.path.join(vim.eval('$HOME'), '.nvim', 'MarkDownRes')
         else:
             cssDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
 
@@ -113,6 +122,7 @@ def getHead(isLive = False, cssstyle = 'Github', codesytle = 'default'):
         content += '<script src="' + cssDir + '/js/autoload.js"></script>\n'
     content += '</head>\n<body id="content">'
     return content
+
 
 def getBody():
     return "</body></html>\r\n\r\n\r\n\r\n"

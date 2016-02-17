@@ -1,9 +1,11 @@
 #!/usr/bin/python
+
 import socket
 import markdown_preview
 import threading
 import sys
 import time
+
 
 class Server(threading.Thread):
 
@@ -42,13 +44,13 @@ class Server(threading.Thread):
         self.isRun = True
         while self.isRun:
             try:
-                confd,addr = self.lisfd.accept()
+                confd, addr = self.lisfd.accept()
             except socket.error as e:
                 print e
                 self.isRun = False
 
             if self.isRun == False:
-                break;
+                break
 
             content = markdown_preview.getBuff()
             confd.send(self.Response(header, content))
