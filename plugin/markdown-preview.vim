@@ -8,6 +8,12 @@ if !has('python')
     finish
 endif
 
+if(has("win32") || has("win64") || has("win95") || has("win16"))
+    let g:iswindows = 1
+else
+    let g:iswindows = 0
+endif
+
 " the target resource files folder
 if !exists('g:MarkDownResDir')
     let g:MarkDownCSSDir='~/.vim/MarkDownRes'
@@ -73,24 +79,32 @@ endfunction
 
 function! ClearAll()
 python << EOF
-import os, commands
-currentpath = commands.getstatusoutput("pwd")[1]
+import os
+currentpath = os.getcwd()
 try:
     os.remove(os.path.join(currentpath, 'tmp.html'))
 except Exception:
-    print ""
+    print "Delete auto create file " + currentpath + " error. Please delete it youself"
 EOF
 endfunction
 
 function! PreviewWithDefaultCodeStyle(args1)
     call MarkdownPreviewWithDefaultCodeStyle(a:args1)
-    !read ENTER
+    if g:iswindows
+        !pause
+    else
+        !read ENTER
+    endif
     call ClearAll()
 endfunction
 
 function! PreviewWithCustomCodeStyle(args1, args2)
     call MarkdownPreviewWithCustomCodeStyle(a:args1, a:args2)
-    !read ENTER
+    if g:iswindows
+        !pause
+    else
+        !read ENTER
+    endif
     call ClearAll()
 endfunction
 

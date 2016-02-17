@@ -42,7 +42,7 @@ Yet another vim markdown preview plugin.
 
 ####Usage
 
-#####Commen Usage
+#####Common Usage
 1. edit your markdown doc normally
 2. when you want to preview it in html you just use **:MarkdownPreview defult** to show your doc in your browser
 3. if you want to change your style. you just use **:MarkdownPreview GitHub** in github style markdown view
