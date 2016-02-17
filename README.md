@@ -37,7 +37,7 @@ Yet another vim markdown preview plugin.
 2. use **cd ~/.vim** into your vim folder
 3. use **git clone https://github.com/MikeCoder/markdown-preview.vim.git .**
 4. use **mv markdown-preview.vim/* . && rm -rf markdown-preview.vim**
-5. use **cp resources MarkDownRes** to copy the resources
+5. use **cp -r resources MarkDownRes ** to copy the resources
 6. then you can open your vim and type **:MarkdownPreview Github** to check whether it is ok
 
 ####Usage
