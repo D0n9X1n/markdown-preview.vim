@@ -30,7 +30,7 @@ def init():
 
     if not os.path.isdir(DisResDir) or not os.path.isfile(os.path.join(DisResDir, markdown_version.__PLUGIN_VERSION__)):
         if os.path.isdir(DisResDir):
-            os.rmdir(DisResDir)
+            shutil.rmtree(DisResDir)
             print 'updating markdown-preview plugin...'
 
         shutil.copytree(SourceResDir, DisResDir)
