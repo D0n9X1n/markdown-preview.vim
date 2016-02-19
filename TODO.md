@@ -11,6 +11,7 @@
 8. when add a new line, the brower dose not go to the bottom
     + use config to control the move
 9. improve the live preview performance
+10. fix bugs on Windows
 
 
 ###BUGS

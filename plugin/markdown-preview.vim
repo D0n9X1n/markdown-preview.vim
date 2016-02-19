@@ -117,11 +117,12 @@ if !exists(':MarkdownPreviewWithCustomCodeStyle')
 endif
 
 map <leader>m :MarkdownPreviewWithCustomCodeStyleCodeStyle Github zenburn<CR>
-if !exists(':LiveMarkdownPreviewStart')
-    command -nargs=0 LiveMarkdownPreviewStart call LiveMarkdownPreviewStart()
-endif
 
-if !exists(':LiveMarkdownPreviewEnd')
-    command -nargs=0 LiveMarkdownPreviewEnd call LiveMarkdownPreviewEnd()
-endif
+" if !exists(':LiveMarkdownPreviewStart')
+    " command -nargs=0 LiveMarkdownPreviewStart call LiveMarkdownPreviewStart()
+" endif
+
+" if !exists(':LiveMarkdownPreviewEnd')
+    " command -nargs=0 LiveMarkdownPreviewEnd call LiveMarkdownPreviewEnd()
+" endif
 

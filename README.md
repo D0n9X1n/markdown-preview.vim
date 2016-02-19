@@ -1,6 +1,6 @@
 VIM Markdown Preview
 ---
-Yet another vim markdown preview plugin.
+Yet another vim markdown preview plugin. Not suitable for Windows.
 
 ####Why you need this
 1. It's easy to install with vundle or bundle
