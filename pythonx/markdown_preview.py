@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 # encoding: utf-8
-import socket
 import vim
 import markdown_parser
 import webbrowser
 import os
 import platform
-import markdown_server
 
 
 def markdownPreviewWithDefaultCodeStyle():
@@ -40,44 +38,6 @@ def markdownPreviewWithCustomCodeStyle():
 
     url = 'file:///' + currentpath + '/tmp.html'
     webbrowser.open(url)
-
-
-def checkPort():
-    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    try:
-        sock.bind(('localhost', 20016))
-    except Exception:
-        return False
-    return True
-
-
-def liveMarkdownPreviewStart():
-    global SERVER
-    if checkPort():
-        SERVER = markdown_server.Server(20016)
-        if not SERVER.isOK():
-            print "Server is Wrong"
-        else:
-            SERVER.start()
-            content = getHead(True)
-            content += getBuff()
-            content += getBody()
-            currentpath = os.getcwd()
-            file = open(os.path.join(currentpath, 'tmp.html'), 'w')
-            file.write(content)
-            file.close()
-            url = 'file:///' + currentpath + '/tmp.html'
-            webbrowser.open(url)
-    else:
-        print "Don't use the command twice, or you may not close the previous vim"
-
-
-def liveMarkdownPreviewEnd():
-    global SERVER
-    try:
-        SERVER.endServer()
-    except Exception:
-        print "Server is DOWN"
 
 
 def getBuff():

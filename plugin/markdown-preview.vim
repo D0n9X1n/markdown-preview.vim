@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""
-" let VERSION = '2.0.0'
+" let VERSION = '2.1.0'
 " let AUTHOR  = 'Mike Tang'
 " let EMAIL   = 'mikecoder.cn@gmail.com'
 """"""""""""""""""""""""""""""""""""""""""""
@@ -117,12 +117,4 @@ if !exists(':MarkdownPreviewWithCustomCodeStyle')
 endif
 
 map <leader>m :MarkdownPreviewWithCustomCodeStyleCodeStyle Github zenburn<CR>
-
-" if !exists(':LiveMarkdownPreviewStart')
-    " command -nargs=0 LiveMarkdownPreviewStart call LiveMarkdownPreviewStart()
-" endif
-
-" if !exists(':LiveMarkdownPreviewEnd')
-    " command -nargs=0 LiveMarkdownPreviewEnd call LiveMarkdownPreviewEnd()
-" endif
 
