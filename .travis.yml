@@ -1,0 +1,11 @@
+language: python
+
+python:
+  - 2.7.10
+
+script:
+  - python ./pythonx/markdown_init_test.py
+
+branches:
+  only:
+    - master

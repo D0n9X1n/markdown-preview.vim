@@ -38,3 +38,5 @@ def init():
         open(os.path.join(DisResDir, markdown_version.__PLUGIN_VERSION__), "w")
 
         print 'markdown-preview plugin has been updated to the lastest version: ' + markdown_version.__PLUGIN_VERSION__
+
+    return False
