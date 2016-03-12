@@ -3,7 +3,6 @@ VIM Markdown Preview
 [![GitHub version](https://badge.fury.io/gh/MikeCoder%2Fmarkdown-preview.vim.svg)](https://badge.fury.io/gh/MikeCoder%2Fmarkdown-preview.vim)
 [![Build Status](https://travis-ci.org/MikeCoder/markdown-preview.vim.svg?branch=master)](https://travis-ci.org/MikeCoder/markdown-preview.vim)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MikeCoder/markdown-preview.vim/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/MikeCoder/markdown-preview.vim/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/MikeCoder/markdown-preview.vim/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/MikeCoder/markdown-preview.vim/?branch=master)
 
 Yet another vim markdown preview plugin. Not suitable for Windows.
 
