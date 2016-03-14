@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-import mistune
+import markdown_parser as mistune
 import unittest
 
 
