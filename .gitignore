@@ -1,6 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### *.iml template
 *.pyc
+pythonx/tests/fixtures/*
 
 ### .git template
 MarkDownRes
