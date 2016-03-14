@@ -4,7 +4,7 @@ python:
   - 2.7.10
 
 script:
-  - python ./pythonx/markdown_init_test.py
+  - python ./pythonx/tests/main_test.py
 
 branches:
   only:
