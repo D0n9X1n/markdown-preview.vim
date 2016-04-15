@@ -116,5 +116,5 @@ if !exists(':MarkdownPreviewWithCustomCodeStyle')
     command -nargs=* MarkdownPreviewWithCustomCodeStyleCodeStyle call PreviewWithCustomCodeStyle(<f-args>)
 endif
 
-map <leader>m :MarkdownPreviewWithCustomCodeStyleCodeStyle Github zenburn<CR>
+map <leader>m :MarkdownPreviewWithCustomCodeStyleCodeStyle GitHub zenburn<CR>
 
