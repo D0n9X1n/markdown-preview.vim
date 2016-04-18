@@ -70,7 +70,7 @@ map <leader>m :MarkdownPreview GitHub<CR>
     + mono
     + monokai_sublime
 4. these code css files are in your **~/.vim/MarkDownRes/code-styles** folder
-5. for example, when you use **:MarkdownPreviewWithCustomCodeStyle Github zenburn**, when edit the [TEST.md](./TEST.md)
+5. for example, when you use **:MarkdownPreviewWithCustomCodeStyle GitHub zenburn**, when edit the [TEST.md](./TEST.md)
     ![code hightlight example](./images/code-style.png)
 
 ####Custom
