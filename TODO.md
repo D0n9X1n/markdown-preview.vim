@@ -8,9 +8,11 @@
 5. **√** ~~code sytle custom support~~
 6. **√** ~~add code custom document~~
 7. add config introduction
-8. when add a new line, the brower dose not go to the bottom
+8. **x** ~~when add a new line, the brower dose not go to the bottom~~
     + use config to control the move
-10. ~~fix bugs on Windows~~
+10. **x** ~~fix bugs on Windows~~
+11. add support for multiable param with one command instead of the different command
+12. add more style for markdown document
 
 
 ###BUGS
@@ -20,3 +22,4 @@
     > ![bug](./images/bug-1.jpg)
 
 4. new bug, when edit in different folder the image is empty
+5. **√** ~~error on Ubuntu 16.04~~
