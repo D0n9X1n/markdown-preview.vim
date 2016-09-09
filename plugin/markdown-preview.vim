@@ -1,13 +1,24 @@
 """"""""""""""""""""""""""""""""""""""""""""
-" let VERSION = '2.1.2'
+" let VERSION = '2.2.0'
 " let AUTHOR  = 'Mike Tang'
 " let EMAIL   = 'mikecoder.cn@gmail.com'
 """"""""""""""""""""""""""""""""""""""""""""
-if !has('python')
-    echo 'Error: Required vim compile with +python'
+if !(has('python') || has('python3'))
+    echo 'Error: Required vim compile with +python or +python3'
     finish
 endif
 
+if has('python')
+    let g:isPython3 = 0
+endif
+
+" we are prefer to use python3
+if has('python3')
+    let g:isPython3 = 1
+endif
+
+" check the os is windows, but we don't recommend to use this plugin on
+" windows.
 if(has("win32") || has("win64") || has("win95") || has("win16"))
     let g:iswindows = 1
 else
@@ -24,7 +35,18 @@ if !exists('g:SourceMarkDownResDir')
     let g:SourceMarkDownCssDir='~/.vim/bundle/markdown-preview.vim/resources'
 endif
 
+" this is to define the path of the resource path
 function! MarkdownPath()
+    if g:isPython3
+python3 << EOF
+import vim, os, sys
+sourced_file = vim.eval('s:SourcedFile')
+while not os.path.exists(os.path.join(sourced_file, 'pythonx')):
+    sourced_file = os.path.dirname(sourced_file)
+module_path = os.path.join(sourced_file, 'pythonx')
+sys.path.append(module_path)
+EOF
+    else
 python << EOF
 import vim, os, sys
 sourced_file = vim.eval('s:SourcedFile')
@@ -33,6 +55,7 @@ while not os.path.exists(os.path.join(sourced_file, 'pythonx')):
 module_path = os.path.join(sourced_file, 'pythonx')
 sys.path.append(module_path)
 EOF
+    endif
 endfunction
 
 " Expand our path
@@ -40,52 +63,100 @@ let s:SourcedFile=expand("<sfile>")
 call MarkdownPath()
 
 function! MarkdownPreviewInit()
+    if g:isPython3
+python3 << EOF
+import markdown_init
+markdown_init.init()
+EOF
+    else
 python << EOF
 import markdown_init
 markdown_init.init()
 EOF
+    endif
 endfunction
 
+" check the plugin version
 call MarkdownPreviewInit()
 
 function! LiveMarkdownPreviewStart()
+    if g:isPython3
+python3 << EOF
+import markdown_preview
+markdown_preview.liveMarkdownPreviewStart()
+EOF
+    else
 python << EOF
 import markdown_preview
 markdown_preview.liveMarkdownPreviewStart()
 EOF
+    endif
 endfunction
 
 function! LiveMarkdownPreviewEnd()
+    if g:isPython3
+python3 << EOF
+import markdown_preview
+markdown_preview.liveMarkdownPreviewEnd()
+EOF
+    else
 python << EOF
 import markdown_preview
 markdown_preview.liveMarkdownPreviewEnd()
 EOF
+    endif
 call ClearAll()
 endfunction
 
 function! MarkdownPreviewWithCustomCodeStyle(args1, args2)
+    if g:isPython3
+python3 << EOF
+import markdown_preview
+markdown_preview.markdownPreviewWithCustomCodeStyle()
+EOF
+    else
 python << EOF
 import markdown_preview
 markdown_preview.markdownPreviewWithCustomCodeStyle()
 EOF
+    endif
 endfunction
 
 function! MarkdownPreviewWithDefaultCodeStyle(args1)
+    if g:isPython3
+python3 << EOF
+import markdown_preview
+markdown_preview.markdownPreviewWithDefaultCodeStyle()
+EOF
+    else
 python << EOF
 import markdown_preview
 markdown_preview.markdownPreviewWithDefaultCodeStyle()
 EOF
+    endif
 endfunction
 
+" clear all the temp files
 function! ClearAll()
+    if g:isPython3
+python3 << EOF
+import os
+currentpath = os.getcwd()
+try:
+    os.remove(os.path.join(currentpath, 'tmp.html'))
+except Exception:
+    print("Delete auto create file " + currentpath + " error. Please delete it youself")
+EOF
+    else
 python << EOF
 import os
 currentpath = os.getcwd()
 try:
     os.remove(os.path.join(currentpath, 'tmp.html'))
 except Exception:
-    print "Delete auto create file " + currentpath + " error. Please delete it youself"
+    print("Delete auto create file " + currentpath + " error. Please delete it youself")
 EOF
+    endif
 endfunction
 
 function! PreviewWithDefaultCodeStyle(args1)
