@@ -6,8 +6,6 @@ VIM Markdown Preview
 
 Yet another vim markdown preview plugin. Not suitable for Windows.
 
-**For Ubuntu 16.04: You should run `sudo apt-get install vim-nox-py2` first.**
-
 ####Why you need this
 1. It's easy to install with vundle or bundle
 2. No complex config steps
