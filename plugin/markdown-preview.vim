@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""
-" let VERSION = '2.2.0'
+" let VERSION = '2.2.1'
 " let AUTHOR  = 'Mike Tang'
-" let EMAIL   = 'mikecoder.cn@gmail.com'
+" let EMAIL   = 'mike@mikecoder.cn'
 """"""""""""""""""""""""""""""""""""""""""""
 if !(has('python') || has('python3'))
     echo 'Error: Required vim compile with +python or +python3'
@@ -21,6 +21,7 @@ endif
 " windows.
 if(has("win32") || has("win64") || has("win95") || has("win16"))
     let g:iswindows = 1
+    echo 'check the os is windows, but we do not recommend to use this plugin on windows.'
 else
     let g:iswindows = 0
 endif
@@ -78,35 +79,6 @@ endfunction
 
 " check the plugin version
 call MarkdownPreviewInit()
-
-function! LiveMarkdownPreviewStart()
-    if g:isPython3
-python3 << EOF
-import markdown_preview
-markdown_preview.liveMarkdownPreviewStart()
-EOF
-    else
-python << EOF
-import markdown_preview
-markdown_preview.liveMarkdownPreviewStart()
-EOF
-    endif
-endfunction
-
-function! LiveMarkdownPreviewEnd()
-    if g:isPython3
-python3 << EOF
-import markdown_preview
-markdown_preview.liveMarkdownPreviewEnd()
-EOF
-    else
-python << EOF
-import markdown_preview
-markdown_preview.liveMarkdownPreviewEnd()
-EOF
-    endif
-call ClearAll()
-endfunction
 
 function! MarkdownPreviewWithCustomCodeStyle(args1, args2)
     if g:isPython3

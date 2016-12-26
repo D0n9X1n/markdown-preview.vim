@@ -6,24 +6,25 @@ VIM Markdown Preview
 
 Yet another vim markdown preview plugin. Not suitable for Windows.
 
-####Why you need this
+###Why you need this
 1. It's easy to install with vundle or bundle
 2. No complex config steps
 3. **Code Hightlight**
 4. Easy to custom your own css style
 5. Code custom style hightlight(using [hightlight.js](https://highlightjs.org/))
+6. **Now support flowcharts feature!** (based on [mermaid](https://github.com/knsv/mermaid), should read the doc first)
 
-####Installing
+###Installing
 
 **Recommand Bundle or Vundle**
 
-##### Vundle
+#### Vundle
 1. you can see how to install vundle [here](https://github.com/VundleVim/Vundle.vim)
 2. after you install your vundle, make sure your plugins folder is **~/.vim/bundle**
 3. then you can write this plugin url into your **.vimrc** file, like **Plugin 'MikeCoder/markdown-preview.vim'**
 4. then use **PluginInstall** to install the plugin
 
-##### **IMPORTANT**:[k-vim](https://github.com/wklken/k-vim) users must read this
+#### **IMPORTANT**:[k-vim](https://github.com/wklken/k-vim) users must read this
 **if your version is 9.x**
 
 1. add **Plug 'MikeCoder/markdown-preview.vim'** to your **vimrc.bundle** file
@@ -35,7 +36,7 @@ Yet another vim markdown preview plugin. Not suitable for Windows.
 1. add **Bundle 'MikeCoder/markdown-preview.vim'** to your **vimrc.bundle** file
 2. and exec **BundleInstall** to install the plugin
 
-##### Usual Install
+#### Usual Install
 1. this is not a good choice, make sure every step is right
 2. use **cd ~/.vim** into your vim folder
 3. use **git clone https://github.com/MikeCoder/markdown-preview.vim.git .**
@@ -43,9 +44,10 @@ Yet another vim markdown preview plugin. Not suitable for Windows.
 5. use **cp -r resources MarkDownRes ** to copy the resources
 6. then you can open your vim and type **:MarkdownPreview Github** to check whether it is ok
 
-####Usage
+###Usage
 
-#####Common Usage
+
+####Common Usage
 1. edit your markdown doc normally
 2. when you want to preview it in html you just use **:MarkdownPreview default** to show your doc in your browser
 3. if you want to change your style. you just use **:MarkdownPreview GitHub** in github style markdown view
@@ -54,8 +56,8 @@ Yet another vim markdown preview plugin. Not suitable for Windows.
 map <leader>m :MarkdownPreview GitHub<CR>
 ```
 
-#####Advanced Usage
-######Preview with custom code sytle and body style
+###Advanced Usage
+####Preview with custom code sytle and body style
 1. use **:MarkdownPreviewWithCustomCodeStyle css-style code-style** instead
 2. you can use custom css style and code hightlight style
 3. the following code styles are you can use:
@@ -71,11 +73,19 @@ map <leader>m :MarkdownPreview GitHub<CR>
     + monokai_sublime
 4. these code css files are in your **~/.vim/MarkDownRes/code-styles** folder
 5. for example, when you use **:MarkdownPreviewWithCustomCodeStyle GitHub zenburn**, when edit the [TEST.md](./TEST.md)
-    ![code hightlight example](./images/code-style.png)
+> ![code hightlight example](./images/code-style.png)
 
-####Custom
+####For flowcharts
+I don't recommand you to use this feature due to many websites or editors not supporting this feature which may confuse you.
+However, if you want to use the flowcharts feature, you must add the type when you writing flowcharts, for example, when you write,
+you should add **chart** to the code block as below:
+> ![code-chart](./images/charts-code.png)
+
+Then when you use `MarkdownPreview github`, you can see the result as below:
+> ![code-result](./images/charts-result.png)
+
+####Customize
 this theme is in the css folder, if you want to change it to your favorite theme. follow the steps:
-
 - go into your .vim folder
 - find **MarkDownRes** folder and you will find default.css and GitHub.css here
 - add your custom css file here, such as **example.css**

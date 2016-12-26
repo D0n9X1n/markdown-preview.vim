@@ -11,7 +11,7 @@ def markdownPreviewWithDefaultCodeStyle():
     cssName = vim.eval("a:args1")
     currentpath = os.getcwd()
 
-    content = getHead(False, cssName)
+    content = getHead(cssName)
     content += getBuff()
     content += getBody()
 
@@ -28,7 +28,7 @@ def markdownPreviewWithCustomCodeStyle():
     codeName = vim.eval("a:args2")
     currentpath = os.getcwd()
 
-    content = getHead(False, cssName, codeName)
+    content = getHead(cssName, codeName)
     content += getBuff()
     content += getBody()
 
@@ -41,45 +41,46 @@ def markdownPreviewWithCustomCodeStyle():
 
 
 def getBuff():
-    lineNum, curLineNum = 0, vim.current.window.cursor[0] - 1
     #  markdown_lib._print(curLineNum)
     buff = ''
     for line in vim.current.buffer:
-        if lineNum == curLineNum:
-            if line.startswith("```") or line.startswith('===') or line.startswith("---") or line == "":
-                buff += line + '\n{ANCHOR}\n'
-            else:
-                buff += line + '{ANCHOR}\n'
-        else:
-            buff += line + '\n'
-        lineNum = lineNum + 1
+        buff += line + '\n'
     buff = markdown_parser.markdown(buff)
-    buff = buff.replace('{ANCHOR}', '<a id="anchor"></a>')
     return buff
 
 
-def getHead(isLive=False, cssstyle='Github', codesytle='default'):
+def getHead(cssStyle='github', codeStyle='default'):
     if vim.eval("exists('g:MarkDownResDir')") == '1':
-        cssDir = vim.eval('g:MarkDownResDir')
+        resDir = vim.eval('g:MarkDownResDir')
     else:
         if platform.system() == 'Windows':
-            cssDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
+            resDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
         elif vim.eval("has('nvim')") == '1':
-            cssDir = os.path.join(vim.eval('$HOME'), '.nvim', 'MarkDownRes')
+            resDir = os.path.join(vim.eval('$HOME'), '.nvim', 'MarkDownRes')
         else:
-            cssDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
+            resDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
+
+    if cssStyle == '':
+        cssStyle = 'github'
+    if codeStyle == '':
+        codeStyle = 'default'
 
     content = "<html>\n"
     content += '<meta charset="UTF-8" />\n'
     content += '<head>'
-    content += '<link rel="stylesheet" href="' + cssDir + '/code-styles/' + codesytle + '.css">\n'
-    content += '<link href="' + cssDir + '/' + cssstyle + '.css" media="all" rel="stylesheet"/>\n'
-    content += '<script src="' + cssDir + '/js/highlight.min.js"></script>\n'
-    content += '<script src="' + cssDir + '/js/highlight.pack.js"></script>\n'
-    content += '<script src="' + cssDir + '/js/jquery-1.11.3.min.js"></script>\n'
-    content += '<script>hljs.initHighlightingOnLoad();</script>\n'
-    if isLive == True:
-        content += '<script src="' + cssDir + '/js/autoload.js"></script>\n'
+    content += '<style type="text/css"> svg { height:auto !important; } </style>\n'
+    content += '<link rel="stylesheet" href="' + resDir + '/code-styles/' + codeStyle.lower() + '.css">\n'
+    content += '<link rel="stylesheet" href="' + resDir + '/chart-styles/chart.css">\n'
+    content += '<link href="' + resDir + '/' + cssStyle.lower() + '.css" media="all" rel="stylesheet"/>\n'
+    content += '<script src="' + resDir + '/js/highlight.min.js"></script>\n'
+    content += '<script src="' + resDir + '/js/highlight.pack.js"></script>\n'
+    content += '<script src="' + resDir + '/js/jquery-1.11.3.min.js"></script>\n'
+    content += '<script src="' + resDir + '/js/mermaid.js"></script>\n'
+    content += '<script> hljs.initHighlightingOnLoad(); window.onload = function() { mermaid.init({noteMargin: 5}, ".lang-chart"); }; </script>\n'
+
+    #  if isLive == True:
+        #  content += '<script src="' + resDir + '/js/autoload.js"></script>\n'
+
     content += '</head>\n<body id="content">'
     return content
 
