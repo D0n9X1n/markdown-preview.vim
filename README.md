@@ -95,6 +95,7 @@ this theme is in the css folder, if you want to change it to your favorite theme
 ####Thanks
 1. mistune
 2. vim
+3. mermaid
 
 ####TODO
 see [@TODO.md](https://github.com/MikeCoder/markdown-preview.vim/blob/master/TODO.md)
