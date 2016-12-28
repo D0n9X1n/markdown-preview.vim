@@ -45,7 +45,7 @@ def getBuff():
     buff = ''
     for line in vim.current.buffer:
         buff += line + '\n'
-    buff = markdown_parser.markdown(buff)
+    buff = markdown_parser.markdown(buff, False)
     return buff
 
 
