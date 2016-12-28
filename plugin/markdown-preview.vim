@@ -1,8 +1,7 @@
-""""""""""""""""""""""""""""""""""""""""""""
-" let VERSION = '2.2.1'
-" let AUTHOR  = 'Mike Tang'
-" let EMAIL   = 'mike@mikecoder.cn'
-""""""""""""""""""""""""""""""""""""""""""""
+" markdown-preview.vim
+"
+"""""""""""""""""""""""
+
 if !(has('python') || has('python3'))
     echo 'Error: Required vim compile with +python or +python3'
     finish
@@ -159,5 +158,5 @@ if !exists(':MarkdownPreviewWithCustomCodeStyle')
     command -nargs=* MarkdownPreviewWithCustomCodeStyleCodeStyle call PreviewWithCustomCodeStyle(<f-args>)
 endif
 
-map <leader>m :MarkdownPreviewWithCustomCodeStyleCodeStyle GitHub zenburn<CR>
+map <leader>m :MarkdownPreviewWithCustomCodeStyleCodeStyle GitHub solarized_light<CR>
 

@@ -45,13 +45,13 @@ Yet another vim markdown preview plugin. Not suitable for Windows.
 6. then you can open your vim and type **:MarkdownPreview Github** to check whether it is ok
 
 ###Usage
-
+You can see exmaple document here [TEST.md](./TEST.md)
 
 ####Common Usage
 1. edit your markdown doc normally
 2. when you want to preview it in html you just use **:MarkdownPreview default** to show your doc in your browser
 3. if you want to change your style. you just use **:MarkdownPreview GitHub** in github style markdown view
-4. you can also use the following code to have more fun
+4. you can also use the following code to bind key maps. 
 ```
 map <leader>m :MarkdownPreview GitHub<CR>
 ```
@@ -85,7 +85,7 @@ Then when you use `MarkdownPreview github`, you can see the result as below:
 > ![code-result](./images/charts-result.png)
 
 ####Customize
-this theme is in the css folder, if you want to change it to your favorite theme. follow the steps:
+This theme is in the css folder, if you want to change it to your favorite theme. follow the steps:
 - go into your .vim folder
 - find **MarkDownRes** folder and you will find default.css and GitHub.css here
 - add your custom css file here, such as **example.css**
@@ -98,28 +98,10 @@ this theme is in the css folder, if you want to change it to your favorite theme
 3. mermaid
 
 ####TODO
-see [@TODO.md](https://github.com/MikeCoder/markdown-preview.vim/blob/master/TODO.md)
+See [@TODO.md](https://github.com/MikeCoder/markdown-preview.vim/blob/master/TODO.md)
 
 ####LAST
-wish you have a nice day
+Wish you have a nice day
 
-####LECENSE
-The MIT License (MIT)
-
-Copyright © 2015 TangDongxin
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software
-and associated documentation files (the “Software”), to deal in the Software without restriction,
-including without limitation the rights to use, copy, modify, merge, publish, distribute,
-sublicense, and/or sell copies of the Software, and to permit persons to whom the Software
-is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or
-substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
-BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
+####LICENSE
+See [@LICENSE](./LICENSE)

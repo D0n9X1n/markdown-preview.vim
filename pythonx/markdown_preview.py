@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
+
 import vim
 import markdown_parser
 import webbrowser
