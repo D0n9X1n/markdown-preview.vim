@@ -79,10 +79,10 @@ map <leader>m :MarkdownPreview GitHub<CR>
 I don't recommand you to use this feature due to many websites or editors not supporting this feature which may confuse you.
 However, if you want to use the flowcharts feature, you must add the type when you writing flowcharts, for example, when you write,
 you should add **chart** to the code block as below:
-> ![code-chart](./images/charts-code.png)
+> ![code-chart](./images/charts-code.jpeg)
 
 Then when you use `MarkdownPreview github`, you can see the result as below:
-> ![code-result](./images/charts-result.png)
+> ![code-result](./images/charts-result.jpeg)
 
 ####Customize
 This theme is in the css folder, if you want to change it to your favorite theme. follow the steps:
