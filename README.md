@@ -6,7 +6,7 @@ markdown-preview.vim
 
 Yet another vim markdown preview plugin. Not suitable for Windows.
 
-###Why you need this
+### Why you need this
 1. It's easy to install with vundle or bundle
 2. No complex config steps
 3. **Code Hightlight**
@@ -14,7 +14,7 @@ Yet another vim markdown preview plugin. Not suitable for Windows.
 5. Code custom style hightlight(using [hightlight.js](https://highlightjs.org/))
 6. **Now support flowcharts feature!** (based on [mermaid](https://github.com/knsv/mermaid), should read the doc first)
 
-###Installing
+### Installing
 
 **Recommand Bundle or Vundle**
 
@@ -44,10 +44,10 @@ Yet another vim markdown preview plugin. Not suitable for Windows.
 5. use **cp -r resources MarkDownRes ** to copy the resources
 6. then you can open your vim and type **:MarkdownPreview Github** to check whether it is ok
 
-###Usage
+### Usage
 You can see exmaple document here [TEST.md](./TEST.md)
 
-####Common Usage
+#### Common Usage
 1. edit your markdown doc normally
 2. when you want to preview it in html you just use **:MarkdownPreview default** to show your doc in your browser
 3. if you want to change your style. you just use **:MarkdownPreview GitHub** in github style markdown view
@@ -56,8 +56,8 @@ You can see exmaple document here [TEST.md](./TEST.md)
 map <leader>m :MarkdownPreview GitHub<CR>
 ```
 
-###Advanced Usage
-####Preview with custom code sytle and body style
+### Advanced Usage
+#### Preview with custom code sytle and body style
 1. use **:MarkdownPreviewWithCustomCodeStyle css-style code-style** instead
 2. you can use custom css style and code hightlight style
 3. the following code styles are you can use:
@@ -75,7 +75,7 @@ map <leader>m :MarkdownPreview GitHub<CR>
 5. for example, when you use **:MarkdownPreviewWithCustomCodeStyle GitHub zenburn**, when edit the [TEST.md](./TEST.md)
 > ![code hightlight example](./images/code-style.png)
 
-####For flowcharts
+#### For flowcharts
 I don't recommand you to use this feature due to many websites or editors not supporting this feature which may confuse you.
 However, if you want to use the flowcharts feature, you must add the type when you writing flowcharts, for example, when you write,
 you should add **chart** to the code block as below:
@@ -84,7 +84,7 @@ you should add **chart** to the code block as below:
 Then when you use `MarkdownPreview github`, you can see the result as below:
 > ![code-result](./images/charts-result.jpeg)
 
-####Customize
+#### Customize
 This theme is in the css folder, if you want to change it to your favorite theme. follow the steps:
 - go into your .vim folder
 - find **MarkDownRes** folder and you will find default.css and GitHub.css here
@@ -92,16 +92,16 @@ This theme is in the css folder, if you want to change it to your favorite theme
 - use vim open your markdown doc and **:MarkdownPreview example**
 - and you will see your doc preview in your browser with example.css
 
-####Thanks
+#### Thanks
 1. mistune
 2. vim
 3. mermaid
 
-####TODO
+#### TODO
 See [@TODO.md](https://github.com/MikeCoder/markdown-preview.vim/blob/master/TODO.md)
 
-####LAST
+#### LAST
 Wish you have a nice day
 
-####LICENSE
+#### LICENSE
 See [@LICENSE](./LICENSE)
