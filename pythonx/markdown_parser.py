@@ -5,13 +5,13 @@
 
     The fastest markdown parser in pure Python with renderer feature.
 
-    :copyright: (c) 2014 - 2016 by Hsiaoming Yang.
+    :copyright: (c) 2014 - 2017 by Hsiaoming Yang.
 """
 
 import re
 import inspect
 
-__version__ = '0.7.3'
+__version__ = '0.7.4'
 __author__ = 'Hsiaoming Yang <me@lepture.com>'
 __all__ = [
     'BlockGrammar', 'BlockLexer',
@@ -35,7 +35,7 @@ _inline_tags = [
 ]
 _pre_tags = ['pre', 'script', 'style']
 _valid_end = r'(?!:/|[^\w\s@]*@)\b'
-_valid_attr = r'''\s*[a-zA-Z\-](?:\=(?:"[^"]*"|'[^']*'|\d+))*'''
+_valid_attr = r'''\s*[a-zA-Z\-](?:\=(?:"[^"]*"|'[^']*'|[^\s'">]+))?'''
 _block_tag = r'(?!(?:%s)\b)\w+%s' % ('|'.join(_inline_tags), _valid_end)
 _scheme_blacklist = ('javascript:', 'vbscript:')
 
@@ -84,7 +84,6 @@ def escape_link(url):
 def preprocessing(text, tab=4):
     text = _newline_pattern.sub('\n', text)
     text = text.expandtabs(tab)
-    text = text.replace('\u00a0', ' ')
     text = text.replace('\u2424', '\n')
     pattern = re.compile(r'^ +$', re.M)
     return pattern.sub('', text)
