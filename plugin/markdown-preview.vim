@@ -1,5 +1,8 @@
+"""""""""""""""""""""""
 " markdown-preview.vim
-"
+" version: v3.0.0
+" author: Dongxin Tang
+" mail: mike@mikecoder.cn
 """""""""""""""""""""""
 
 if !(has('python') || has('python3'))

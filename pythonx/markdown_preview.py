@@ -42,11 +42,10 @@ def markdownPreviewWithCustomCodeStyle():
 
 
 def getBuff():
-    #  markdown_lib._print(curLineNum)
     buff = ''
     for line in vim.current.buffer:
         buff += line + '\n'
-    buff = markdown_parser.markdown(buff, False)
+    buff = markdown_parser.markdown(buff)
     return buff
 
 

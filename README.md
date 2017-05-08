@@ -7,6 +7,7 @@ markdown-preview.vim
 Yet another vim markdown preview plugin. Not suitable for Windows.
 
 ### Why you need this
+0. **[CommonMark](http://commonmark.org/) Syntax Support**
 1. It's easy to install with vundle or bundle
 2. No complex config steps
 3. **Code Hightlight**
@@ -24,19 +25,7 @@ Yet another vim markdown preview plugin. Not suitable for Windows.
 3. then you can write this plugin url into your **.vimrc** file, like **Plugin 'MikeCoder/markdown-preview.vim'**
 4. then use **PluginInstall** to install the plugin
 
-#### **IMPORTANT**:[k-vim](https://github.com/wklken/k-vim) users must read this
-**if your version is 9.x**
-
-1. add **Plug 'MikeCoder/markdown-preview.vim'** to your **vimrc.bundle** file
-2. Must before the `call plug#end()` line
-2. and exec **PlugInstall** to install the plugin
-
-**if your version is 8.x**
-
-1. add **Bundle 'MikeCoder/markdown-preview.vim'** to your **vimrc.bundle** file
-2. and exec **BundleInstall** to install the plugin
-
-#### Usual Install
+#### Install without Vundle or other pacakage management plugins
 1. this is not a good choice, make sure every step is right
 2. use **cd ~/.vim** into your vim folder
 3. use **git clone https://github.com/MikeCoder/markdown-preview.vim.git .**
@@ -51,7 +40,7 @@ You can see exmaple document here [TEST.md](./TEST.md)
 1. edit your markdown doc normally
 2. when you want to preview it in html you just use **:MarkdownPreview default** to show your doc in your browser
 3. if you want to change your style. you just use **:MarkdownPreview GitHub** in github style markdown view
-4. you can also use the following code to bind key maps. 
+4. you can also use the following code to your vimrc file to bind key maps.
 ```
 map <leader>m :MarkdownPreview GitHub<CR>
 ```
@@ -93,9 +82,9 @@ This theme is in the css folder, if you want to change it to your favorite theme
 - and you will see your doc preview in your browser with example.css
 
 #### Thanks
-1. mistune
-2. vim
-3. mermaid
+0. [rtfd/CommonMark-py](https://github.com/rtfd/CommonMark-py)
+1. [vim](https://github.com/vim/vim)
+2. [mermaid](https://github.com/knsv/mermaid)
 
 #### TODO
 See [@TODO.md](https://github.com/MikeCoder/markdown-preview.vim/blob/master/TODO.md)

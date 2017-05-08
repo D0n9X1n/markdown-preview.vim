@@ -14,6 +14,7 @@
 11. add support for multiable param with one command instead of the different command
 12. add more style for markdown document
 13. √ ~~add flowcharts support~~
+14. √ ~~add CommonMark Syntax support~~
 
 
 ###BUGS
