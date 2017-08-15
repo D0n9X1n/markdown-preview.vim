@@ -23,5 +23,6 @@
 3. **√** ~~if vim version is 7.3 or not enable python, it will cause bugs like:~~
     > ![bug](./images/bug-1.jpg)
 
-4. new bug, when edit in different folder the image is empty
+4. **√** ~~new bug, when edit in different folder the image is empty~~
 5. **√** ~~error on Ubuntu 16.04~~
+6. **√** ~~when parser unicode, warning appears~~
