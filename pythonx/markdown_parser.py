@@ -2,11 +2,15 @@
 # encoding: utf-8
 
 import sys
-import markdown_lib
+import CommonMark
 
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
 def markdown(text, escape=True):
-    parser = markdown_lib.Markdown();
-    return parser.convert(text);
+    parser = CommonMark.Parser()
+    ast = parser.parse(text)
+
+    renderer = CommonMark.HtmlRenderer()
+    html = renderer.render(ast)
+    return html
