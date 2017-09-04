@@ -3,9 +3,13 @@
 
 import sys
 import CommonMark
+from imp import reload
 
-reload(sys)
-sys.setdefaultencoding("utf-8")
+try:
+    reload(sys)
+    sys.setdefaultencoding("utf-8")
+except Exception as e:
+    pass
 
 def markdown(text, escape=True):
     parser = CommonMark.Parser()
