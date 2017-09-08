@@ -58,7 +58,11 @@ def is_blank(s):
 
 def is_space_or_tab(s):
     if s is not None:
-        s = unicode(s, 'latin1').encode('utf-8')
+        #  s = unicode(s, 'latin1').encode('utf-8')
+        try:
+            s = unicode(s, 'latin1').encode('utf-8')
+        except Exception:
+            s = str(s);
     return s == ' ' or s == '\t'
 
 
@@ -644,7 +648,11 @@ class Parser(object):
         try:
             c = current_line[i]
             if c is not None:
-                c = unicode(c, 'latin1').encode('utf-8')
+                #  c = unicode(c, 'latin1').encode('utf-8')
+                try:
+                    c = unicode(c, 'latin1').encode('utf-8')
+                except Exception:
+                    c = str(c);
         except IndexError:
             c = ''
         while c != '':
