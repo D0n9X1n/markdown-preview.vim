@@ -36,6 +36,19 @@ Yet another vim markdown preview plugin. Not suitable for Windows.
 ### Usage
 You can see exmaple document here [TEST.md](./TEST.md)
 
+### Config
+If your plugin folder is not `.vim/bundle`, you should config it first:
+
+Like:
+```
+" markdown-preview.vim {{{
+    let g:SourceMarkDownResDir = '/Users/Mike/.vim/bundle/markdown-preview.vim/resources'
+    let g:MarkDownResDir = '/Users/Mike/.vim/MarkDownRes'
+" }}}
+```
++ g:SourceMarkDownResDir is your plugin folder.
++ g:MarkDownResDir is whatever you want.
+
 #### Common Usage
 1. edit your markdown doc normally
 2. when you want to preview it in html you just use **:MarkdownPreview default** to show your doc in your browser
