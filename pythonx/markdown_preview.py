@@ -50,15 +50,18 @@ def getBuff():
 
 
 def getHead(cssStyle='github', codeStyle='default'):
-    if vim.eval("exists('g:MarkDownResDir')") == '1':
-        resDir = vim.eval('g:MarkDownResDir')
+    if vim.eval("exists('g:PluginDir')") == '1':
+        resDir = os.path.join(vim.eval('g:PluginDir'), 'resources')
     else:
+        resDir = os.path.join('markdown-preview.vim', 'resources');
+        resDir = os.path.join('bundle', resDir);
         if platform.system() == 'Windows':
-            resDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
+            resDir = os.path.join(vim.eval('$HOME'), '.vim', resDir)
         elif vim.eval("has('nvim')") == '1':
-            resDir = os.path.join(vim.eval('$HOME'), '.nvim', 'MarkDownRes')
+            resDir = os.path.join(vim.eval('$HOME'), '.nvim', resDir)
         else:
-            resDir = os.path.join(vim.eval('$HOME'), '.vim', 'MarkDownRes')
+            resDir = os.path.join(vim.eval('$HOME'), '.vim', resDir)
+        print resDir
 
     if cssStyle == '':
         cssStyle = 'github'
@@ -76,14 +79,9 @@ def getHead(cssStyle='github', codeStyle='default'):
     content += '<script src="' + resDir + '/js/highlight.pack.js"></script>\n'
     content += '<script src="' + resDir + '/js/jquery-1.11.3.min.js"></script>\n'
     content += '<script src="' + resDir + '/js/mermaid.js"></script>\n'
-    content += '<script> hljs.initHighlightingOnLoad(); window.onload = function() { mermaid.init({noteMargin: 5}, ".lang-chart"); }; </script>\n'
-
-    #  if isLive == True:
-        #  content += '<script src="' + resDir + '/js/autoload.js"></script>\n'
-
+    content += '<script> hljs.initHighlightingOnLoad(); window.onload = function() { mermaid.init({noteMargin: 5}, ".language-chart"); }; </script>\n'
     content += '</head>\n<body id="content">'
     return content
-
 
 def getBody():
     return "</body></html>\r\n\r\n\r\n\r\n"

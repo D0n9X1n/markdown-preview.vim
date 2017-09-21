@@ -1,4 +1,4 @@
-###Flowchart
+### Flowchart
 ```chart
 sequenceDiagram
     participant Alice
@@ -61,18 +61,18 @@ sequenceDiagram
     end
 ```
 
-###HTML BLOCK
+### HTML BLOCK
 
 <center> In god we trust. </center>
 
-###Table
+### Table
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
 | col 3 is      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
 
-###PYTHON
+### PYTHON
 ```
 #!/usr/bin/env python
 # encoding: utf-8
@@ -104,7 +104,7 @@ if __name__ == '__main__':
 
 ```
 
-###C/C++
+### C/C++
 ```
 class Solution {
     public:
@@ -126,7 +126,7 @@ int main() {
 }
 ```
 
-###Java
+### Java
 ```
 public class FourSum {
     public static void main(String[] args) {
