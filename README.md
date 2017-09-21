@@ -37,7 +37,7 @@ Yet another vim markdown preview plugin. Not suitable for Windows.
 You can see exmaple document here [TEST.md](./TEST.md)
 
 ### Config
-If your plugin folder is not `.vim/bundle`, you should config it first:
+If your plugin folder is not `.vim/bundle`, you should config it first, by adding these into your .vimrc file:
 
 Like:
 ```
