@@ -42,7 +42,7 @@ If your plugin folder is not `.vim/bundle`, you should config it first, by addin
 Like:
 ```
 " markdown-preview.vim {{{
-    let g:PluginDir = '/Users/Mike/.vim/bundle/'
+    let g:PluginDir = '/Users/Mike/.vim/bundle/markdown-preview.vim'
 " }}}
 ```
 + g:SourceMarkDownResDir is your plugin folder.
