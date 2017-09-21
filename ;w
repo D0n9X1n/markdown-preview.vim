@@ -45,7 +45,7 @@ Like:
     let g:PluginDir = '/Users/Mike/.vim/bundle/markdown-preview.vim'
 " }}}
 ```
-+ g:PluginDir is where your markdown-preview.vim plugin is.
++ g:PlugDir is where your markdown-preview.vim plugin is.
 
 #### Common Usage
 1. edit your markdown doc normally
