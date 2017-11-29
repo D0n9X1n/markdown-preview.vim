@@ -61,7 +61,7 @@ def getHead(cssStyle='github', codeStyle='default'):
             resDir = os.path.join(vim.eval('$HOME'), '.nvim', resDir)
         else:
             resDir = os.path.join(vim.eval('$HOME'), '.vim', resDir)
-        print resDir
+        #  print(resDir)
 
     if cssStyle == '':
         cssStyle = 'github'
