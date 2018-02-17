@@ -15,8 +15,15 @@ Yet another vim markdown preview plugin. Not suitable for Windows.
 5. Code custom style hightlight(using [hightlight.js](https://highlightjs.org/))
 6. **Now support flowcharts feature!** (based on [mermaid](https://github.com/knsv/mermaid), should read the doc first)
 
-### Installing
+### Dependency
+You may install some libraries first:
 
+```
+(sudo) pip install future
+(sudo) pip install commonmark
+```
+
+### Installing
 **Recommand Bundle or Vundle**
 
 #### Vundle
