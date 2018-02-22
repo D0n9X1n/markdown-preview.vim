@@ -648,7 +648,6 @@ class Parser(object):
         try:
             c = current_line[i]
             if c is not None:
-                #  c = unicode(c, 'latin1').encode('utf-8')
                 try:
                     c = unicode(c, 'latin1').encode('utf-8')
                 except Exception:
@@ -688,6 +687,11 @@ class Parser(object):
         except IndexError:
             c = None
         while count > 0 and c is not None:
+            if c is not None:
+                try:
+                    c = unicode(c, 'latin1').encode('utf-8')
+                except Exception:
+                    c = str(c);
             if c == '\t':
                 chars_to_tab = 4 - (self.column % 4)
                 if columns:

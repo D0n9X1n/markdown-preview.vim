@@ -833,6 +833,11 @@ class InlineParser(object):
         """
         res = False
         c = self.peek()
+        if c is not None:
+            try:
+                c = unicode(c, 'latin1').encode('utf-8')
+            except Exception:
+                c = str(c);
         if c is None:
             return False
         if c == '\n':
