@@ -92,8 +92,8 @@ Then when you use `MarkdownPreview github`, you can see the result as below:
 
 #### Customize
 This theme is in the css folder, if you want to change it to your favorite theme. follow the steps:
-- go into your .vim folder
-- find **MarkDownRes** folder and you will find default.css and GitHub.css here
+- go into your *markdown-preview.vim* folder
+- find **resources** folder and you will find default.css and github.css here
 - add your custom css file here, such as **example.css**
 - use vim open your markdown doc and **:MarkdownPreview example**
 - and you will see your doc preview in your browser with example.css
