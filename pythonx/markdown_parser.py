@@ -2,7 +2,8 @@
 # encoding: utf-8
 
 import sys
-import CommonMark
+#  import CommonMark
+import mistune
 from imp import reload
 
 try:
@@ -11,10 +12,14 @@ try:
 except Exception as e:
     pass
 
-def markdown(text, escape=True):
-    parser = CommonMark.Parser()
-    ast = parser.parse(text)
 
-    renderer = CommonMark.HtmlRenderer()
-    html = renderer.render(ast)
+def markdown(text, escape=True):
+    #  parser = CommonMark.Parser()
+    #  ast = parser.parse(text)
+
+    #  renderer = CommonMark.HtmlRenderer()
+    #  html = renderer.render(ast)
+
+    html = mistune.markdown(text, escape)
+
     return html

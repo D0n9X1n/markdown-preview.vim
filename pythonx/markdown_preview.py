@@ -45,7 +45,7 @@ def getBuff():
     buff = ''
     for line in vim.current.buffer:
         buff += line + '\n'
-    buff = markdown_parser.markdown(buff)
+    buff = markdown_parser.markdown(buff, False)
     return buff
 
 
@@ -53,8 +53,8 @@ def getHead(cssStyle='github', codeStyle='default'):
     if vim.eval("exists('g:PluginDir')") == '1':
         resDir = os.path.join(vim.eval('g:PluginDir'), 'resources')
     else:
-        resDir = os.path.join('markdown-preview.vim', 'resources');
-        resDir = os.path.join('bundle', resDir);
+        resDir = os.path.join('markdown-preview.vim', 'resources')
+        resDir = os.path.join('bundle', resDir)
         if platform.system() == 'Windows':
             resDir = os.path.join(vim.eval('$HOME'), '.vim', resDir)
         elif vim.eval("has('nvim')") == '1':
@@ -72,16 +72,20 @@ def getHead(cssStyle='github', codeStyle='default'):
     content += '<meta charset="UTF-8" />\n'
     content += '<head>'
     content += '<style type="text/css"> svg { height:auto !important; } </style>\n'
-    content += '<link rel="stylesheet" href="' + resDir + '/code-styles/' + codeStyle.lower() + '.css">\n'
-    content += '<link rel="stylesheet" href="' + resDir + '/chart-styles/chart.css">\n'
-    content += '<link href="' + resDir + '/' + cssStyle.lower() + '.css" media="all" rel="stylesheet"/>\n'
+    content += '<link rel="stylesheet" href="' + resDir + \
+        '/code-styles/' + codeStyle.lower() + '.css">\n'
+    content += '<link rel="stylesheet" href="' + \
+        resDir + '/chart-styles/chart.css">\n'
+    content += '<link href="' + resDir + '/' + \
+        cssStyle.lower() + '.css" media="all" rel="stylesheet"/>\n'
     content += '<script src="' + resDir + '/js/highlight.min.js"></script>\n'
     content += '<script src="' + resDir + '/js/highlight.pack.js"></script>\n'
     content += '<script src="' + resDir + '/js/jquery-1.11.3.min.js"></script>\n'
     content += '<script src="' + resDir + '/js/mermaid.js"></script>\n'
-    content += '<script> hljs.initHighlightingOnLoad(); window.onload = function() { mermaid.init({noteMargin: 5}, ".language-chart"); }; </script>\n'
+    content += '<script> hljs.initHighlightingOnLoad(); window.onload = function() { mermaid.init({noteMargin: 5}, ".lang-chart"); }; </script>\n'
     content += '</head>\n<body id="content">'
     return content
+
 
 def getBody():
     return "</body></html>\r\n\r\n\r\n\r\n"
