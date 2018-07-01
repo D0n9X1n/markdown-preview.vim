@@ -2,10 +2,15 @@
 # encoding: utf-8
 
 import vim
-import markdown_parser
 import webbrowser
 import os
 import platform
+import mistune
+
+
+def markdown(text, escape=True):
+    html = mistune.markdown(text, escape)
+    return html
 
 
 def markdownPreviewWithDefaultCodeStyle():
@@ -45,7 +50,7 @@ def getBuff():
     buff = ''
     for line in vim.current.buffer:
         buff += line + '\n'
-    buff = markdown_parser.markdown(buff, False)
+    buff = markdown(buff, False)
     return buff
 
 

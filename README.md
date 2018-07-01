@@ -20,6 +20,7 @@ You may install some libraries first:
 
 ```
 (sudo) pip install future
+(sudo) pip install mistune
 ```
 
 ### Installing

@@ -63,24 +63,7 @@ endfunction
 
 " Expand our path
 let s:SourcedFile=expand("<sfile>")
-call MarkdownPath()
-
-function! MarkdownPreviewInit()
-    if g:isPython3
-python3 << EOF
-import markdown_init
-markdown_init.init()
-EOF
-    else
-python << EOF
-import markdown_init
-markdown_init.init()
-EOF
-    endif
-endfunction
-
-" check the plugin version
-call MarkdownPreviewInit()
+" call MarkdownPath()
 
 function! MarkdownPreviewWithCustomCodeStyle(args1, args2)
     if g:isPython3
