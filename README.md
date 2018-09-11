@@ -24,7 +24,7 @@ You may install some libraries first:
 ```
 
 ### Installing
-**Recommand Bundle or Vundle**
+**Recommend Bundle or Vundle**
 
 #### Vundle
 1. you can see how to install vundle [here](https://github.com/VundleVim/Vundle.vim)
@@ -41,7 +41,7 @@ You may install some libraries first:
 6. then you can open your vim and type **:MarkdownPreview Github** to check whether it is ok
 
 ### Usage
-You can see exmaple document here [TEST.md](./TEST.md)
+You can see example document here [TEST.md](./TEST.md)
 
 ### Config
 If your plugin folder is not `.vim/bundle`, you should config it first, by adding these into your .vimrc file:
@@ -67,7 +67,7 @@ map <leader>m :MarkdownPreview GitHub<CR>
 #### Preview with custom code sytle and body style
 1. use **:MarkdownPreviewWithCustomCodeStyle css-style code-style** instead
 2. you can use custom css style and code hightlight style
-3. the following code styles are you can use:
+3. the following are code styles you can use:
     + github
     + solarized_dark
     + solarized_light
