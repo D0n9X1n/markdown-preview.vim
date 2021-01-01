@@ -1,6 +1,6 @@
 markdown-preview.vim
 ---
-[![GitHub version](https://badge.fury.io/gh/MikeCoder%2Fmarkdown-preview.vim.svg)](https://badge.fury.io/gh/MikeCoder%2Fmarkdown-preview.vim)
+![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/D0n9x1n/markdown-preview.vim?include_prereleases)
 [![Build Status](https://travis-ci.org/MikeCoder/markdown-preview.vim.svg?branch=master)](https://travis-ci.org/MikeCoder/markdown-preview.vim)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MikeCoder/markdown-preview.vim/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/MikeCoder/markdown-preview.vim/?branch=master)
 
