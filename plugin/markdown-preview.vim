@@ -1,6 +1,6 @@
 """""""""""""""""""""""
 " markdown-preview.vim
-" version: v3.1.1
+" version: v3.1.5
 " author: Dongxin Tang
 " mail: mike@mikecoder.cn
 """""""""""""""""""""""

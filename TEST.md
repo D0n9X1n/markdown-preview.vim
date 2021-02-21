@@ -1,5 +1,5 @@
 ### Flowchart
-```chart
+```mermaid
 sequenceDiagram
     participant Alice
     participant Bob
@@ -21,7 +21,7 @@ graph LR
     C --> D
 ```
 
-```chart
+```mermaid
 graph TB
     sq[Square shape] --> ci((Circle shape))
 

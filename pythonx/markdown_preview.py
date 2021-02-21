@@ -87,7 +87,7 @@ def getHead(cssStyle='github', codeStyle='default'):
     content += '<script src="' + resDir + '/js/highlight.pack.js"></script>\n'
     content += '<script src="' + resDir + '/js/jquery-1.11.3.min.js"></script>\n'
     content += '<script src="' + resDir + '/js/mermaid.js"></script>\n'
-    content += '<script> hljs.initHighlightingOnLoad(); window.onload = function() { mermaid.init({noteMargin: 5}, ".lang-chart"); }; </script>\n'
+    content += '<script> hljs.initHighlightingOnLoad(); window.onload = function() { mermaid.init({noteMargin: 5}, ".lang-chart"); mermaid.init({noteMargin: 5}, ".lang-mermaid"); }; </script>\n'
     content += '</head>\n<body id="content">'
     return content
 
