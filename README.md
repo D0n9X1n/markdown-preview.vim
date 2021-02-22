@@ -1,8 +1,8 @@
 markdown-preview.vim
 ---
 ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/D0n9x1n/markdown-preview.vim?include_prereleases)
-[![Build Status](https://travis-ci.org/MikeCoder/markdown-preview.vim.svg?branch=master)](https://travis-ci.org/MikeCoder/markdown-preview.vim)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MikeCoder/markdown-preview.vim/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/MikeCoder/markdown-preview.vim/?branch=master)
+[![Build Status](https://travis-ci.org/D0n9X1n/markdown-preview.vim.svg?branch=master)](https://travis-ci.org/D0n9X1n/markdown-preview.vim)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/D0n9X1n/markdown-preview.vim/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/D0n9X1n/markdown-preview.vim/?branch=master)
 
 Yet another vim markdown preview plugin. Not suitable for Windows.
 
@@ -29,13 +29,13 @@ You may install some libraries first:
 #### Vundle
 1. you can see how to install vundle [here](https://github.com/VundleVim/Vundle.vim)
 2. after you install your vundle, make sure your plugins folder is **~/.vim/bundle**
-3. then you can write this plugin url into your **.vimrc** file, like **Plugin 'MikeCoder/markdown-preview.vim'**
+3. then you can write this plugin url into your **.vimrc** file, like **Plugin 'D0n9X1n/markdown-preview.vim'**
 4. then use **PluginInstall** to install the plugin
 
 #### Install without Vundle or other pacakage management plugins
 1. this is not a good choice, make sure every step is right
 2. use **cd ~/.vim** into your vim folder
-3. use **git clone https://github.com/MikeCoder/markdown-preview.vim.git .**
+3. use **git clone https://github.com/D0n9X1n/markdown-preview.vim.git .**
 4. use **mv markdown-preview.vim/* . && rm -rf markdown-preview.vim**
 5. use **cp -r resources MarkDownRes ** to copy the resources
 6. then you can open your vim and type **:MarkdownPreview Github** to check whether it is ok
@@ -105,7 +105,7 @@ This theme is in the css folder, if you want to change it to your favorite theme
 2. [mermaid](https://github.com/knsv/mermaid)
 
 #### TODO
-See [@TODO.md](https://github.com/MikeCoder/markdown-preview.vim/blob/master/TODO.md)
+See [@TODO.md](https://github.com/D0n9X1n/markdown-preview.vim/blob/master/TODO.md)
 
 #### LAST
 Wish you have a nice day
