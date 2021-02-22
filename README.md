@@ -1,8 +1,6 @@
 markdown-preview.vim
 ---
 ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/D0n9x1n/markdown-preview.vim?include_prereleases)
-[![Build Status](https://travis-ci.org/D0n9X1n/markdown-preview.vim.svg?branch=master)](https://travis-ci.org/D0n9X1n/markdown-preview.vim)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/D0n9X1n/markdown-preview.vim/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/D0n9X1n/markdown-preview.vim/?branch=master)
 
 Yet another vim markdown preview plugin. Not suitable for Windows.
 
